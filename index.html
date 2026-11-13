@@ -11,7 +11,7 @@
 body{margin:0;background:#FFFFFF}
 a{color:#4B32C3}a:hover{color:#2E1E86}
 </style>
-<style>html{scroll-behavior:smooth}*{box-sizing:border-box}</style>
+<style>summary::-webkit-details-marker{display:none}summary{list-style:none}.faq-icon{transition:transform .2s}details[open]>summary .faq-icon{transform:rotate(45deg)}html{scroll-behavior:smooth}*{box-sizing:border-box}</style>
 </head>
 <body>
 <div style="font-family: Inter, system-ui, sans-serif; color: #17162B; background: #FFFFFF; width: 100%; line-height: 1.55">
@@ -20,15 +20,16 @@ a{color:#4B32C3}a:hover{color:#2E1E86}
 <div style="max-width: 1160px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 24px; color: #17162B; text-decoration: none">sites<span style="color: #5B3FD9">by</span>nik</a>
 <nav style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; font-size: 15px; font-weight: 500">
+<a href="#work" style="color: #17162B; text-decoration: none">Work</a>
 <a href="#packages" style="color: #17162B; text-decoration: none">Packages</a>
-<a href="#revisions" style="color: #17162B; text-decoration: none">Revisions</a>
-<a href="#process" style="color: #17162B; text-decoration: none">How it works</a>
+<a href="#about" style="color: #17162B; text-decoration: none">About</a>
+<a href="#faq" style="color: #17162B; text-decoration: none">FAQ</a>
 <a href="#packages" style="background: #17162B; color: #FFFFFF; text-decoration: none; padding: 12px 20px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book your site</a>
 </nav>
 </div>
 </header>
 
-<section id="top" style="padding: 96px 24px 88px">
+<section id="top" style="padding: clamp(48px, 6vw, 64px) 24px">
 <div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: center">
 <div>
 <p style="margin: 0 0 16px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Simple websites for new businesses &amp; brands</p>
@@ -36,7 +37,7 @@ a{color:#4B32C3}a:hover{color:#2E1E86}
 <p style="margin: 0 0 32px; font-size: 19px; color: #4A4860; max-width: 540px">I build clean, simple websites for people who are just starting out or launching a brand. You get a site that looks professional, takes payments, and is ready to share — without paying agency prices.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="#packages" style="background: #5B3FD9; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">See packages from $250</a>
-<a href="#process" style="border: 1.5px solid #17162B; color: #17162B; text-decoration: none; font-weight: 600; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">How it works</a>
+<a href="#work" style="border: 1.5px solid #17162B; color: #17162B; text-decoration: none; font-weight: 600; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">See my work</a>
 </div>
 </div>
 <div style="background: #F3F0FC; border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
@@ -66,9 +67,9 @@ a{color:#4B32C3}a:hover{color:#2E1E86}
 </div>
 </section>
 
-<section style="padding: 80px 24px; background: #17162B; color: #FFFFFF">
+<section style="padding: clamp(48px, 6vw, 64px) 24px; background: #17162B; color: #FFFFFF">
 <div style="max-width: 1160px; margin: 0 auto">
-<h2 style="margin: 0 0 40px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1.1; max-width: 720px">This is for you if…</h2>
+<h2 style="margin: 0 0 28px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1.1; max-width: 720px">This is for you if…</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
 <div style="border-top: 2px solid #9C88FF; padding-top: 20px">
 <p style="margin: 0 0 8px; font-weight: 700; font-size: 19px">You&#39;re just getting started</p>
@@ -90,11 +91,98 @@ a{color:#4B32C3}a:hover{color:#2E1E86}
 </div>
 </section>
 
-<section id="packages" style="padding: 96px 24px; background: #FFFFFF">
+<section id="work" style="padding: clamp(48px, 6vw, 64px) 24px; background: #FAF9FD">
+<div style="max-width: 1160px; margin: 0 auto">
+<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Recent work</p>
+<h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1.1">Sites I&#39;ve built</h2>
+<p style="margin: 0 0 28px; font-size: 17px; color: #4A4860; max-width: 680px">From Shopify stores to landing pages and link hubs, here&#39;s a look at what I build.</p>
+<details>
+<summary style="cursor: pointer; display: inline-flex; align-items: center; gap: 12px; min-height: 48px; padding: 10px 22px; border-radius: 999px; background: #FFFFFF; border: 1.5px solid #17162B; font-weight: 600">See all 5 sites <span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="margin-top: 32px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+<div style="border: 1px solid #E2DFEC; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF">
+<div style="background: #EAF6F7; padding: 14px 16px 28px">
+<div style="display: flex; gap: 6px; margin-bottom: 22px" aria-hidden="true"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></div>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; color: #137A84">Tier Tots Kids</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #137A84">tiertotskids.com</p>
+</div>
+<div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #17162B; color: #FFFFFF">Client build</span>
+<span style="font-size: 14px; color: #5E5C73">Kids&#39; boutique</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: #4A4860">Shopify dropshipping store with product setup, collections, reviews, a 10% welcome pop-up, email automations and a custom QR code.</p>
+<a href="https://tiertotskids.com" style="margin-top: auto; color: #4B32C3; font-weight: 600; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center">View site →</a>
+</div>
+</div>
+<div style="border: 1px solid #E2DFEC; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF">
+<div style="background: #FBE9EF; padding: 14px 16px 28px">
+<div style="display: flex; gap: 6px; margin-bottom: 22px" aria-hidden="true"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></div>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; color: #A8325E">God&#39;s Access</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #A8325E">godsaccess.com</p>
+</div>
+<div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: #17162B; color: #FFFFFF">My own brand</span>
+<span style="font-size: 14px; color: #5E5C73">Faith-based apparel</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: #4A4860">Shopify store for Christian tees and hoodies, with product collections, cart and full checkout.</p>
+<a href="https://godsaccess.com" style="margin-top: auto; color: #4B32C3; font-weight: 600; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center">View site →</a>
+</div>
+</div>
+<div style="border: 1px solid #E2DFEC; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF">
+<div style="background: #F3EEFB; padding: 14px 16px 28px">
+<div style="display: flex; gap: 6px; margin-bottom: 22px" aria-hidden="true"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></div>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; color: #5B3FD9">Evolve With Nik</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #5B3FD9">evolvewithnik.com</p>
+</div>
+<div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 14px; color: #5E5C73">Women&#39;s empowerment</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: #4A4860">Brand site with a 60-second check-in quiz, free gift signup, and paid workbooks and courses.</p>
+<a href="https://evolvewithnik.com" style="margin-top: auto; color: #4B32C3; font-weight: 600; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center">View site →</a>
+</div>
+</div>
+<div style="border: 1px solid #E2DFEC; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF">
+<div style="background: #FBF3DE; padding: 14px 16px 28px">
+<div style="display: flex; gap: 6px; margin-bottom: 22px" aria-hidden="true"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></div>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; color: #8A6420">Her Glow Up Chapter</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #8A6420">herglowupchapter.com</p>
+</div>
+<div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 14px; color: #5E5C73">Link hub &amp; free read</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: #4A4860">Landing page and link hub connecting a free read, a music catalog and custom songs and jingles.</p>
+<a href="https://herglowupchapter.com" style="margin-top: auto; color: #4B32C3; font-weight: 600; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center">View site →</a>
+</div>
+</div>
+<div style="border: 1px solid #E2DFEC; border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF">
+<div style="background: #EEF0F4; padding: 14px 16px 28px">
+<div style="display: flex; gap: 6px; margin-bottom: 22px" aria-hidden="true"><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span><span style="width: 10px; height: 10px; border-radius: 50%; background: #FFFFFF"></span></div>
+<p style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 28px; line-height: 1.1; color: #17162B">Nik Co Holdings</p>
+<p style="margin: 6px 0 0; font-size: 14px; color: #17162B">nikcoholdings.com</p>
+</div>
+<div style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1">
+<div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+<span style="font-size: 14px; color: #5E5C73">Holding company</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: #4A4860">Company site bringing together courses, digital tools, music and creative services under one brand family.</p>
+<a href="https://nikcoholdings.com" style="margin-top: auto; color: #4B32C3; font-weight: 600; font-size: 15px; min-height: 44px; display: inline-flex; align-items: center">View site →</a>
+</div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</section>
+
+<section id="packages" style="padding: clamp(48px, 6vw, 64px) 24px 24px; background: #FFFFFF">
 <div style="max-width: 1160px; margin: 0 auto">
 <p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Packages</p>
 <h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.05">Pick the site that fits where you are</h2>
-<p style="margin: 0 0 48px; font-size: 18px; color: #4A4860; max-width: 640px">Three simple options. Every package is mobile-friendly, built with your logo and colors, and handed over ready to share.</p>
+<p style="margin: 0 0 32px; font-size: 18px; color: #4A4860; max-width: 640px">Three simple options. Every package is mobile-friendly, built with your logo and colors, and handed over ready to share. Platform, app and domain fees are separate (see FAQ).</p>
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; align-items: stretch">
 
@@ -169,203 +257,118 @@ a{color:#4B32C3}a:hover{color:#2E1E86}
 
 </div>
 
-<div style="margin-top: 32px; background: #F3F0FC; border-radius: 20px; padding: 28px 32px">
-<p style="margin: 0 0 16px; font-weight: 700; font-size: 18px">Add-ons</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; font-size: 15px">
-<div style="background: #FFFFFF; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
-<p style="margin: 0"><strong>Extra page</strong> — $75</p>
-<a href="https://buy.stripe.com/fZucN5aeDeR373s9Phdwc05" style="color: #4B32C3; font-weight: 600; font-size: 14px; min-height: 44px; display: inline-flex; align-items: center">Add a page →</a>
+<details style="margin-top: 32px; background: #F3F0FC; border-radius: 20px; padding: 8px 32px">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px"><span><strong style="font-size: 18px">Add-ons</strong><span style="display: block; font-size: 15px; color: #4A4860">Retainer, redesign, extra pages and more. Tap to see all 6.</span></span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="padding-bottom: 8px">
+<details style="border-top: 1px solid #DCD5F5">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-size: 17px"><span><strong>Monthly retainer</strong> — $250/month</span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 0 20px">
+<p style="margin: 0; flex: 1 1 320px; font-size: 15px; color: #4A4860">Up to 10 updates a month: products, text, photos, prices, links and small tweaks, plus a monthly check that your payment buttons and forms work. Cancel anytime with 30 days&#39; notice.</p>
+<a href="https://buy.stripe.com/5kQ28r4UjfV79bA6D5dwc03" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Start monthly retainer</a>
 </div>
-<div style="background: #FFFFFF; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
-<p style="margin: 0"><strong>Extra revision round</strong> — $50</p>
-<a href="https://buy.stripe.com/9B63cvgD19wJbjIbXpdwc06" style="color: #4B32C3; font-weight: 600; font-size: 14px; min-height: 44px; display: inline-flex; align-items: center">Add a revision →</a>
+</details>
+<details style="border-top: 1px solid #DCD5F5">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-size: 17px"><span><strong>New layout / site redesign</strong> — $200</span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 0 20px">
+<p style="margin: 0; flex: 1 1 320px; font-size: 15px; color: #4A4860">A fresh look for your existing site: up to 3 pages restyled with new layouts, colors, fonts and buttons, using your current content. Includes 1 round of revisions.</p>
+<a href="https://buy.stripe.com/eVqaEX0E35gt3Rge5xdwc04" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Get a redesign</a>
 </div>
-<div style="background: #FFFFFF; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
-<p style="margin: 0"><strong>Priority start (next open spot)</strong> — $100</p>
-<a href="https://buy.stripe.com/fZucN52MbdMZ87w0eHdwc07" style="color: #4B32C3; font-weight: 600; font-size: 14px; min-height: 44px; display: inline-flex; align-items: center">Add priority start →</a>
+</details>
+<details style="border-top: 1px solid #DCD5F5">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-size: 17px"><span><strong>Extra page</strong> — $75</span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 0 20px">
+<p style="margin: 0; flex: 1 1 320px; font-size: 15px; color: #4A4860">Add one more page, like About, FAQ, Services, Gallery or Contact, designed to match your site and added to your menu.</p>
+<a href="https://buy.stripe.com/fZucN5aeDeR373s9Phdwc05" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Add a page</a>
 </div>
-<div style="background: #FFFFFF; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
-<p style="margin: 0"><strong>Single update</strong> — $50 per change</p>
-<a href="https://buy.stripe.com/dRm8wP4UjgZbevUe5xdwc08" style="color: #4B32C3; font-weight: 600; font-size: 14px; min-height: 44px; display: inline-flex; align-items: center">Buy an update →</a>
+</details>
+<details style="border-top: 1px solid #DCD5F5">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-size: 17px"><span><strong>Extra revision round</strong> — $50</span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 0 20px">
+<p style="margin: 0; flex: 1 1 320px; font-size: 15px; color: #4A4860">One more round of changes beyond what your package includes. Send everything in one list and every change gets made.</p>
+<a href="https://buy.stripe.com/9B63cvgD19wJbjIbXpdwc06" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Add a revision</a>
 </div>
+</details>
+<details style="border-top: 1px solid #DCD5F5">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-size: 17px"><span><strong>Priority start</strong> — $100</span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 0 20px">
+<p style="margin: 0; flex: 1 1 320px; font-size: 15px; color: #4A4860">Skip the wait and start at the next open spot. Your project still follows the 2-week minimum, including revisions.</p>
+<a href="https://buy.stripe.com/fZucN52MbdMZ87w0eHdwc07" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Add priority start</a>
 </div>
-<div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #DCD5F5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<div style="flex: 1 1 320px">
-<p style="margin: 0 0 4px; font-weight: 700; font-size: 17px">Monthly retainer — $250/month</p>
-<p style="margin: 0; font-size: 15px; color: #4A4860">Up to 10 updates a month: products, text, photos, prices, links &amp; small tweaks. Cancel anytime with 30 days&#39; notice.</p>
+</details>
+<details style="border-top: 1px solid #DCD5F5">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-size: 17px"><span><strong>Single update</strong> — $50 per change</span><span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 0 0 20px">
+<p style="margin: 0; flex: 1 1 320px; font-size: 15px; color: #4A4860">One small change to your live site: a text edit, photo swap, price change, link update or new product upload. Need a few? Choose the quantity at checkout.</p>
+<a href="https://buy.stripe.com/dRm8wP4UjgZbevUe5xdwc08" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Buy an update</a>
 </div>
-<a href="https://buy.stripe.com/5kQ28r4UjfV79bA6D5dwc03" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 14px 24px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Start monthly retainer</a>
+</details>
 </div>
-<div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #DCD5F5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<div style="flex: 1 1 320px">
-<p style="margin: 0 0 4px; font-weight: 700; font-size: 17px">New layout / site redesign — $200</p>
-<p style="margin: 0; font-size: 15px; color: #4A4860">A fresh look for your existing site: up to 3 pages restyled with new layouts, colors, fonts and buttons, using your current content. Includes 1 round of revisions.</p>
+</details>
 </div>
-<a href="https://buy.stripe.com/eVqaEX0E35gt3Rge5xdwc04" style="background: #17162B; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 14px 24px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Get a redesign</a>
-</div>
+</section>
+
+<section id="about" style="padding: 24px 24px clamp(48px, 6vw, 64px); background: #FFFFFF">
+<div style="max-width: 1160px; margin: 0 auto; box-sizing: border-box; background: #F8F6FE; border-radius: 28px; padding: clamp(24px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 48px); align-items: start">
+<img src="nik.jpg" alt="Nik, founder of Sites by Nik" style="margin-top: 8px; width: 100%; max-width: 460px; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 28px; display: block">
+<div>
+<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Meet Nik</p>
+<h2 style="margin: 0 0 20px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(30px, 4vw, 44px); line-height: 1.1">Hi, I&#39;m Nik. I build the site so you can build the business.</h2>
+<p style="margin: 0 0 16px; font-size: 17px; color: #4A4860">I&#39;m the founder of God&#39;s Access, and I built its online store myself, just like I built this website. I know what it feels like to have a big idea and a small budget.</p>
+<p style="margin: 0 0 28px; font-size: 17px; color: #4A4860">Sites by Nik is how I help other new business owners get online the right way: a clean, simple site that looks professional, takes payments and is ready to share, without agency prices.</p>
+<a href="#packages" style="background: #5B3FD9; color: #FFFFFF; text-decoration: none; font-weight: 600; padding: 16px 28px; border-radius: 999px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Work with me</a>
 </div>
 </div>
 </section>
 
-<section style="padding: 88px 24px; background: #FAF9FD">
-<div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px">
-<div>
-<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Getting paid</p>
-<h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1">Payment processing, set up for you</h2>
-<p style="margin: 0; font-size: 17px; color: #4A4860">Every package can take money. I connect your site to the payment account you choose so customers can pay, book or buy right from your page.</p>
-</div>
-<div style="display: flex; flex-direction: column; gap: 16px">
-<div style="background: #FFFFFF; border: 1px solid #E2DFEC; border-radius: 16px; padding: 20px 24px">
-<p style="margin: 0 0 4px; font-weight: 700">You open the account</p>
-<p style="margin: 0; color: #5E5C73; font-size: 15px">Stripe, Square or PayPal, in your name, so the money goes straight to you. I&#39;ll send you a step-by-step guide.</p>
-</div>
-<div style="background: #FFFFFF; border: 1px solid #E2DFEC; border-radius: 16px; padding: 20px 24px">
-<p style="margin: 0 0 4px; font-weight: 700">I build the buttons and checkout</p>
-<p style="margin: 0; color: #5E5C73; font-size: 15px">Payment links, “Buy now” and “Book now” buttons, or a full store checkout, depending on your package.</p>
-</div>
-<div style="background: #FFFFFF; border: 1px solid #E2DFEC; border-radius: 16px; padding: 20px 24px">
-<p style="margin: 0 0 4px; font-weight: 700">We test it together</p>
-<p style="margin: 0; color: #5E5C73; font-size: 15px">I run a test purchase before launch so you know it works the first time a real customer pays.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="fees" style="padding: 96px 24px; background: #FFFFFF; border-bottom: 1px solid #ECEAF3">
-<div style="max-width: 1160px; margin: 0 auto">
-<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Good to know</p>
-<h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; max-width: 760px">Additional subscription fees may apply</h2>
-<p style="margin: 0 0 40px; font-size: 17px; color: #4A4860; max-width: 720px">Your package covers my design and setup work. The platforms and apps your business runs on charge their own fees, which you pay directly to them. These are separate from your package price.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px">
-<div style="border: 1px solid #E2DFEC; border-radius: 20px; padding: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Website platform plan</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">For example, a paid Shopify plan is required before your store can go live and take orders. Billed monthly by the platform.</p>
-</div>
-<div style="border: 1px solid #E2DFEC; border-radius: 20px; padding: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Apps &amp; tools</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">Apps your business needs to operate, like DSers for dropshipping, product review apps, QR code tools, email marketing or booking apps. Many charge a monthly fee.</p>
-</div>
-<div style="border: 1px solid #E2DFEC; border-radius: 20px; padding: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Domain name</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">Your yourbusiness.com address is renewed yearly with the company you buy it from.</p>
-</div>
-<div style="border: 1px solid #E2DFEC; border-radius: 20px; padding: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Payment processing fees</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">Stripe, Square, PayPal and Shopify Payments take a small percentage of each sale.</p>
-</div>
-</div>
-<p style="margin: 28px 0 0; font-size: 15px; color: #4A4860; background: #F8F6FE; border-radius: 14px; padding: 18px 22px">Anything you want added outside your package is an extra cost. I&#39;ll let you know about any app fees before installing it, and nothing gets added without your OK. All accounts and subscriptions stay in your name.</p>
-</div>
-</section>
-
-<section id="revisions" style="padding: 96px 24px; background: #FFFFFF">
-<div style="max-width: 1160px; margin: 0 auto">
-<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Revisions</p>
-<h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1; max-width: 720px">How revisions work</h2>
-<p style="margin: 0 0 40px; font-size: 17px; color: #4A4860; max-width: 680px">Revisions keep your project on schedule and make sure you get exactly what you want. Here&#39;s what to expect.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px">
-<div style="background: #F8F6FE; border-radius: 20px; padding: 28px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">One round = one list</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">Send all your changes together in one message. I make every change on the list, then send the updated site back to you.</p>
-</div>
-<div style="background: #F8F6FE; border-radius: 20px; padding: 28px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">What counts</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">Text edits, swapping photos, colors, fonts, moving sections and button changes are all included.</p>
-</div>
-<div style="background: #F8F6FE; border-radius: 20px; padding: 28px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">What&#39;s extra</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">New pages, a full redesign or changes after you approve the final site are billed as add-ons.</p>
-</div>
-<div style="background: #F8F6FE; border-radius: 20px; padding: 28px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Need another round?</p>
-<p style="margin: 0; color: #4A4860; font-size: 15px">Extra revision rounds are $50 each. Please send revisions within 5 days so your launch stays on track.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="process" style="padding: 96px 24px; background: #17162B; color: #FFFFFF">
-<div style="max-width: 1160px; margin: 0 auto">
-<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #B9A9FF">How it works</p>
-<h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1">From idea to live site in 5 steps</h2>
-<p style="margin: 0 0 48px; font-size: 17px; color: #C9C6DD; max-width: 680px">Every website takes a minimum of 2 weeks to complete, and that includes revision time. Bigger packages can take longer.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px">
-<div>
-<p style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #B9A9FF">01</p>
-<p style="margin: 0 0 6px; font-weight: 700; font-size: 18px">Book your package</p>
-<p style="margin: 0; color: #C9C6DD; font-size: 15px">Pay a 50% deposit to hold your spot.</p>
-</div>
-<div>
-<p style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #B9A9FF">02</p>
-<p style="margin: 0 0 6px; font-weight: 700; font-size: 18px">Send your info</p>
-<p style="margin: 0; color: #C9C6DD; font-size: 15px">Fill out a short form with your logo, photos and details.</p>
-</div>
-<div>
-<p style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #B9A9FF">03</p>
-<p style="margin: 0 0 6px; font-weight: 700; font-size: 18px">I build it</p>
-<p style="margin: 0; color: #C9C6DD; font-size: 15px">You get a preview link to see your site.</p>
-</div>
-<div>
-<p style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #B9A9FF">04</p>
-<p style="margin: 0 0 6px; font-weight: 700; font-size: 18px">Revisions</p>
-<p style="margin: 0; color: #C9C6DD; font-size: 15px">Send your changes and I polish it up.</p>
-</div>
-<div>
-<p style="margin: 0 0 12px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 40px; color: #B9A9FF">05</p>
-<p style="margin: 0 0 6px; font-weight: 700; font-size: 18px">Launch</p>
-<p style="margin: 0; color: #C9C6DD; font-size: 15px">Pay the remaining 50% and your site goes live.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section style="padding: 96px 24px; background: #FFFFFF">
-<div style="max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px">
-<div>
-<p style="margin: 0 0 12px; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5B3FD9">Before we start</p>
-<h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1">What you&#39;ll send me</h2>
-<p style="margin: 0; font-size: 17px; color: #4A4860">Having these ready means your site gets done faster. Don&#39;t have something yet? Just let me know and we&#39;ll figure it out.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 15px">
-<p style="margin: 0; padding: 16px 20px; border: 1px solid #E2DFEC; border-radius: 14px"><strong>Your logo</strong> and brand colors</p>
-<p style="margin: 0; padding: 16px 20px; border: 1px solid #E2DFEC; border-radius: 14px"><strong>Photos</strong> of you, your products or your work</p>
-<p style="margin: 0; padding: 16px 20px; border: 1px solid #E2DFEC; border-radius: 14px"><strong>Your words:</strong> about you, services and prices</p>
-<p style="margin: 0; padding: 16px 20px; border: 1px solid #E2DFEC; border-radius: 14px"><strong>Your domain</strong> (or I&#39;ll help you buy one)</p>
-<p style="margin: 0; padding: 16px 20px; border: 1px solid #E2DFEC; border-radius: 14px"><strong>A payment account:</strong> Stripe, Square or PayPal</p>
-<p style="margin: 0; padding: 16px 20px; border: 1px solid #E2DFEC; border-radius: 14px"><strong>Social links</strong> and contact email</p>
-</div>
-</div>
-</section>
-
-<section style="padding: 88px 24px; background: #FAF9FD">
+<section id="faq" style="padding: clamp(48px, 6vw, 64px) 24px; background: #FAF9FD">
 <div style="max-width: 820px; margin: 0 auto">
-<h2 style="margin: 0 0 32px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1">Questions</h2>
-<div style="display: flex; flex-direction: column; gap: 24px">
-<div style="border-bottom: 1px solid #E2DFEC; padding-bottom: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Do I pay for hosting, apps or a domain separately?</p>
-<p style="margin: 0; color: #4A4860">Yes. Your platform plan (like Shopify), any apps, and your domain are paid by you and kept in your name, so you always own your site. I&#39;ll help you pick the most affordable options.</p>
-</div>
-<div style="border-bottom: 1px solid #E2DFEC; padding-bottom: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">How long will my site take?</p>
-<p style="margin: 0; color: #4A4860">At least 2 weeks, including revisions. Sending your info and changes on time keeps your launch on schedule.</p>
-</div>
-<div style="border-bottom: 1px solid #E2DFEC; padding-bottom: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Do you write the words for my site?</p>
-<p style="margin: 0; color: #4A4860">You send me the basics, and I&#39;ll clean them up and shape them into sections that read well.</p>
-</div>
-<div style="border-bottom: 1px solid #E2DFEC; padding-bottom: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">Can I upgrade later?</p>
-<p style="margin: 0; color: #4A4860">Absolutely. Start with Starter or Launch, and when you&#39;re ready to grow, you only pay the difference to upgrade.</p>
-</div>
-<div style="border-bottom: 1px solid #E2DFEC; padding-bottom: 24px">
-<p style="margin: 0 0 8px; font-weight: 700; font-size: 18px">How do I pay?</p>
-<p style="margin: 0; color: #4A4860">50% deposit to start and 50% before launch. Deposits are non-refundable once work begins.</p>
-</div>
+<h2 style="margin: 0 0 20px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.1">Questions</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E2DFEC">
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">How does it work after I book?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">Pay your 50% deposit and you&#39;ll get a short form for your logo, photos, text, prices and links. I build your site and send you a preview link, you send your revisions, and once you pay the remaining 50%, your site goes live.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">How long will my site take?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">At least 2 weeks, including revisions. Sending your info and changes on time keeps your launch on schedule.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">Do you set up payments?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">Yes. You open a Stripe, Square or PayPal account in your name so the money goes straight to you, and I connect your payment buttons or checkout. I run a test purchase before launch so you know it works.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">Are there other fees besides my package?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">Yes. Your package covers my design and setup. Platforms and apps charge their own fees, paid by you directly to them: a paid Shopify plan is required before a store can go live, apps like DSers for dropshipping, review apps, QR code tools, or email and booking apps may charge monthly, your domain renews yearly, and payment processors take a small fee per sale. I&#39;ll tell you about any app cost before adding it, and everything stays in your name.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">How do revisions work?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">Send all your changes together in one list. Each list is one round. Text, photos, colors, fonts, sections and buttons are included. New pages, a full redesign or changes after you approve the final site cost extra. Extra rounds are $50, and please send revisions within 5 days to keep your launch on track.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">What do I need to send you?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">Your logo and brand colors, photos of you, your products or your work, a little about your business, services and prices, your social links, and your domain if you have one. Don&#39;t have something yet? Let me know and we&#39;ll figure it out.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">Do you write the words for my site?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">You send me the basics, and I&#39;ll clean them up and shape them into sections that read well.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">Can I upgrade later?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">Absolutely. Start with Starter or Launch, and when you&#39;re ready to grow, you only pay the difference to upgrade.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">How do I pay?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">50% deposit to start and 50% before launch, by card through Stripe.</p>
+</details>
+<details style="border-bottom: 1px solid #E2DFEC">
+<summary style="cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; font-weight: 700; font-size: 18px">What&#39;s your refund policy?<span class="faq-icon" aria-hidden="true" style="flex: 0 0 auto; font-size: 26px; font-weight: 400; color: #5B3FD9; line-height: 1">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A4860">All payments are non-refundable, including deposits, add-ons and retainer months already billed. If your plans change or you need to cancel, what you&#39;ve paid can be used as credit toward a different website or another Sites by Nik service within 6 months of your payment. Monthly retainers can be cancelled anytime with 30 days&#39; notice to stop future charges.</p>
+</details>
 </div>
 </div>
 </section>
 
-<section id="contact" style="padding: 104px 24px; background: #5B3FD9; color: #FFFFFF; text-align: center">
+<section id="contact" style="padding: clamp(56px, 7vw, 80px) 24px; background: #5B3FD9; color: #FFFFFF; text-align: center">
 <div style="max-width: 760px; margin: 0 auto">
 <h2 style="margin: 0 0 16px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(34px, 5vw, 56px); line-height: 1.05">Ready to launch?</h2>
 <p style="margin: 0 0 36px; font-size: 19px; color: #ECE7FF">Pick your package and let&#39;s get your business online.</p>
