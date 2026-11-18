@@ -157,6 +157,7 @@ footer p{margin-top:8px;max-width:70ch}
 const HELP_EMAIL="sitesbynik@gmail.com";
 const COURSE_PRICE="$97";
 const SITE_CHECK_PRICE="$97";
+const CREDIT_DAYS=14;
 const SITE_URL="https://sitesbynik.com";
 
 /* ===== Course content ===== */
@@ -214,8 +215,14 @@ const M=[
 {id:"domain",n:"04",name:"Domain & email",time:"45 min (plus up to 48 hrs)",finish:"Your store has its own .com and a branded email.",intro:"Get your own web address and a branded email so customers trust you and your emails reach inboxes.",groups:[
  {t:"Domain",s:[
   {t:"Buy or connect a domain",path:"Settings → Domains",d:"Buy through Shopify for automatic setup, or click <b>Connect existing domain</b> if you bought it at GoDaddy, Namecheap or similar."},
-  {t:"If you connect an outside domain",path:"Your domain host → DNS settings",d:"<ul><li>A record: Name <code>@</code> → <code>23.227.38.65</code></li><li>CNAME: Name <code>www</code> → <code>shops.myshopify.com</code></li><li>Delete other <code>@</code> A records and any forwarding</li><li>Back in Shopify, click <b>Verify connection</b>. It can take up to 48 hours.</li></ul>"},
+  {t:"If you connect an outside domain",path:"Your domain host → DNS settings",d:"Bought it on GoDaddy? Use the GoDaddy section below instead.<ul><li>A record: Name <code>@</code> → <code>23.227.38.65</code></li><li>CNAME: Name <code>www</code> → <code>shops.myshopify.com</code></li><li>Delete other <code>@</code> A records and any forwarding</li><li>Back in Shopify, click <b>Verify connection</b>. It can take up to 48 hours.</li></ul>"},
   {t:"Set it as the primary domain",path:"Settings → Domains → Change primary domain",d:"This is the address shoppers see. Wait until it says <b>SSL active</b> before sharing links."}
+ ]},
+ {t:"Using GoDaddy? Buy and connect your domain step by step",s:[
+  {t:"Buy your domain on GoDaddy",path:"godaddy.com → search your store name",d:"Pick the <b>.com</b> if it’s available, add it to your cart and check out. You only need the domain. Skip GoDaddy’s website builder and other add-ons, since your store lives on Shopify. Turn on <b>auto-renew</b> so you never lose your domain."},
+  {t:"Connect it automatically (easiest)",path:"Shopify: Settings → Domains → Connect existing domain",d:"Type your domain (like <code>yourstore.com</code>) and tap Next. Choose <b>Connect automatically</b>, log in to GoDaddy when it asks, and approve the connection. Shopify updates GoDaddy’s settings for you."},
+  {t:"If automatic doesn’t work, connect it by hand",path:"GoDaddy: My Products → Domains → your domain → DNS",d:"In GoDaddy’s DNS records:<ul><li>Edit the <b>A</b> record named <code>@</code> so its value is <code>23.227.38.65</code>. Delete any other <code>@</code> A records, like one that says “Parked.”</li><li>Edit the <b>CNAME</b> named <code>www</code> so its value is <code>shops.myshopify.com</code>.</li><li>Turn off any <b>Forwarding</b> on the domain.</li></ul>Save, then go back to Shopify and tap <b>Verify connection</b>.",tip:"<b>Don’t delete MX or email TXT records.</b> If your email runs through GoDaddy or Microsoft, those records keep it working."},
+  {t:"Wait, then make it your main address",path:"Shopify: Settings → Domains",d:"It usually connects within an hour, but can take up to 48 hours. When it shows <b>Connected</b> and <b>SSL active</b>, set it as your primary domain."}
  ]},
  {t:"Branded email",s:[
   {t:"Create an email on your domain",d:"Use Google Workspace, Zoho Mail or your domain host. Common choices: hello@ for marketing and support@ for orders."},
@@ -415,7 +422,7 @@ const M=[
   {t:"Create a GitHub account and a repository",path:"github.com → Sign up · then + → New repository",d:"Name it after your business (for example <code>yourbrand</code>), make it <b>Public</b>, and tap Create."},
   {t:"Upload your pages",path:"Your repository → Add file → Upload files",d:"Upload your homepage as <code>index.html</code> and your product page with a hard-to-guess name like <code>course-k4p8z2.html</code>. Tap Commit changes.",tip:"<b>Names matter:</b> file names are case-sensitive. <code>Index.html</code> is not the same as <code>index.html</code>; check before you commit."},
   {t:"Turn on GitHub Pages",path:"Repository → Settings → Pages",d:"Under Build and deployment, choose <b>Deploy from a branch</b>, pick <b>main</b> and <b>/(root)</b>, then Save. In a minute or two your site is live at <code>yourname.github.io/yourrepo</code>."},
-  {t:"Connect your own domain (optional)",path:"Settings → Pages → Custom domain",d:"Type your domain and save. Then at your domain host’s DNS page add:<ul><li>A records for <code>@</code> → <code>185.199.108.153</code>, <code>185.199.109.153</code>, <code>185.199.110.153</code>, <code>185.199.111.153</code></li><li>CNAME for <code>www</code> → <code>yourname.github.io</code></li></ul>When GitHub says the DNS check passed, turn on <b>Enforce HTTPS</b>. It can take up to 48 hours."},
+  {t:"Connect your own domain (optional)",path:"Settings → Pages → Custom domain",d:"Type your domain and save. Then at your domain host’s DNS page (on GoDaddy: My Products → Domains → your domain → DNS) add:<ul><li>A records for <code>@</code> → <code>185.199.108.153</code>, <code>185.199.109.153</code>, <code>185.199.110.153</code>, <code>185.199.111.153</code></li><li>CNAME for <code>www</code> → <code>yourname.github.io</code></li></ul>When GitHub says the DNS check passed, turn on <b>Enforce HTTPS</b>. It can take up to 48 hours."},
   {t:"Know what “public” means",d:"Anyone who browses your GitHub repository could find your files. A hard-to-guess file name keeps your product away from casual visitors and search engines, which is fine for most starter products. When sales grow, consider a private repository (a paid GitHub plan) or a course platform."}
  ]},
  {t:"Deliver automatically with a Stripe payment link",s:[
@@ -521,7 +528,7 @@ function celebrate(){const name=f("first");const [D,T]=totals();
    <div class="step"><span style="font-size:22px">🔍</span><div class="sb"><span class="st">Get a Site Check · ${SITE_CHECK_PRICE}</span><div class="sd">Before (or right after) you launch, I review your store and send you a short list of fixes: design, product pages, policies, checkout and mobile. Email me your store link.</div><div class="btn-row"><a class="btn ghost" href="mailto:${HELP_EMAIL}?subject=Site%20Check%20request">Request a Site Check</a></div><p class="sub" style="margin-top:6px;font-size:13.5px;color:var(--muted)">${HELP_EMAIL}</p></div></div>
    <div class="step"><span style="font-size:22px">💜</span><div class="sb"><span class="st">Share your launch</span><div class="sd">Post your store and tag <b>@sitesbynik</b>. I love celebrating my students.</div></div></div>
   </div>${dfy()}`;}
-function dfy(){return `<div class="dfy"><span class="eyebrow">Rather have it done for you?</span><h3>Let me build it for you</h3><p>Stuck, or short on time? I can build your store with this exact process. Websites start at $250, and your ${COURSE_PRICE} course purchase is credited toward any Sites by Nik package. Just email me your receipt.</p><a class="btn light" href="${SITE_URL}/#packages">See packages</a><p style="font-size:13.5px;margin-top:10px">${HELP_EMAIL}</p></div>`}
+function dfy(){return `<div class="dfy"><span class="eyebrow">Rather have it done for you?</span><h3>Let me build it for you</h3><p>Stuck, or short on time? I can build your store with this exact process. Websites start at $250. Book within ${CREDIT_DAYS} days of buying this course and your ${COURSE_PRICE} is credited toward any Sites by Nik package. Just email me your receipt.</p><a class="btn light" href="${SITE_URL}/#packages">See packages</a><p style="font-size:13.5px;margin-top:10px">${HELP_EMAIL}</p></div>`}
 function renderAll(){
   document.getElementById("main").innerHTML=M.map((m,mi)=>{
     let h=`<section class="panel" id="panel-${m.id}" role="tabpanel">`;
