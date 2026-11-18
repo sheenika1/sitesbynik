@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Shopify Launch Kit · The DIY Course by Sites by Nik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--p:#5B3FD9;--p-deep:#3B1C9E;--lav:#9C88FF;--soft:#F3F0FC;--soft2:#F8F6FE;--ink:#17162B;--muted:#5E5C73;--line:#E6E2F3;--line2:#CFC7EE;--gold:#E7B84A;--gold-soft:#FDF5E2;--ok:#1E7A4F;--ok-soft:#DDF1E6;--coral:#B4412F;--coral-soft:#FCECE9;--r:18px;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(130px + env(safe-area-inset-top,0px))}
+body{margin:0;background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;padding-bottom:env(safe-area-inset-bottom,0px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#fff;z-index:40}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;line-height:1.1;margin:0;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0}
+a{color:var(--p);font-weight:600}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.88em;background:var(--soft);border-radius:5px;padding:1px 5px}
+:focus-visible{outline:3px solid var(--lav);outline-offset:2px;border-radius:6px}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+
+/* Masthead */
+.mast{background:linear-gradient(180deg,var(--soft) 0%,#fff 100%);padding:calc(28px + env(safe-area-inset-top,0px)) 0 22px}
+.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em}
+.logo span{color:var(--p)}
+.eyebrow{display:inline-block;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--p)}
+.mast .eyebrow{margin-top:18px}
+.mast h1{font-size:clamp(32px,6.5vw,50px);margin-top:6px}
+.mast .lede{margin-top:10px;color:var(--muted);font-size:17px;max-width:62ch}
+.overall{display:flex;align-items:center;gap:12px;margin-top:18px}
+.bar{flex:1;height:10px;background:#fff;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p-deep),var(--p));border-radius:999px;transition:width .3s}
+.pct{font-size:13.5px;font-weight:700;color:var(--p);white-space:nowrap}
+
+/* Module strip */
+.mods{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(255,255,255,.97);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.strip{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:thin}
+.mod{flex:0 0 auto;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line2);border-radius:999px;padding:7px 12px;cursor:pointer;display:inline-flex;gap:7px;align-items:center;white-space:nowrap;min-height:38px}
+.mod .n{font-weight:800;color:var(--p)}
+.mod .c{font-size:12px;color:var(--muted);font-weight:600}
+.mod.full .c{color:var(--ok)}
+.mod.full .c::before{content:"✓ "}
+.mod[aria-selected=true]{background:var(--p);border-color:var(--p);color:#fff}
+.mod[aria-selected=true] .n,.mod[aria-selected=true] .c{color:#fff}
+
+/* Panels */
+main{padding:26px 0 40px}
+.panel{display:grid;gap:20px}
+.panel[hidden]{display:none}
+.head h2{font-size:clamp(28px,5vw,38px);margin-top:4px}
+.head .lede{color:var(--muted);margin-top:8px;font-size:17px;max-width:64ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.meta span{font-size:13px;font-weight:600;background:var(--soft);color:var(--p-deep);border-radius:999px;padding:5px 11px}
+.why{background:var(--gold-soft);border-radius:14px;padding:14px 16px;font-size:15.5px}
+.why b{color:#7A5718}
+.group{display:grid;gap:10px}
+.group>h3{font-size:21px;margin-top:6px}
+.step{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.step input{width:22px;height:22px;margin-top:2px;accent-color:var(--p);flex:0 0 auto;cursor:pointer}
+.step.done{background:var(--soft2);border-color:var(--line2)}
+.step.done .st{text-decoration:line-through;color:var(--muted)}
+.sb{min-width:0;flex:1}
+.st{font-weight:700;font-size:16.5px;cursor:pointer;display:block}
+.path{display:inline-block;margin:6px 0 2px;font-size:13px;font-weight:700;color:var(--p-deep);background:var(--soft);border-radius:8px;padding:3px 9px}
+.sd{color:#3E3C52;font-size:15.5px;margin-top:4px}
+.sd ul{margin:4px 0 0;padding-left:20px}
+.tip{margin-top:8px;background:var(--coral-soft);border-radius:10px;padding:8px 12px;font-size:14.5px}
+.tip b{color:var(--coral)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+table.wide{min-width:520px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{background:var(--soft);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--p-deep)}
+tr:last-child td{border-bottom:none}
+tr.pick td{background:#FBFAFF;font-weight:600}
+td.num{white-space:nowrap}
+
+/* Workbook fields */
+.wb{background:var(--soft2);border:1px solid var(--line2);border-radius:var(--r);padding:16px 18px}
+.wb h3{font-size:19px}
+.wb .sub{color:var(--muted);font-size:14.5px;margin-top:4px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:4px 14px;margin-top:6px}
+.fields .full{grid-column:1/-1}
+.fields label{display:block;font-size:13.5px;font-weight:600;color:var(--muted);margin-top:10px}
+input[type=text],input[type=email],input[type=url],input[type=date],input[type=number],textarea,select{width:100%;margin-top:5px;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line2);border-radius:12px;padding:10px 12px}
+textarea{min-height:84px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--p);box-shadow:0 0 0 3px rgba(91,63,217,.15)}
+.saved-note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* Copy boxes */
+.copy{border:1px solid var(--line2);border-radius:16px;overflow:hidden;background:#fff}
+.ch{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;padding:12px 14px;background:var(--soft)}
+.ch b{font-size:15.5px}
+.ch small{display:block;font-weight:500;color:var(--muted);font-size:13.5px;margin-top:2px}
+.cbtn{flex:0 0 auto;font:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;background:var(--p);color:#fff;padding:8px 16px;cursor:pointer;min-height:38px}
+.cbtn.ok{background:var(--ok)}
+pre{margin:0;padding:14px;white-space:pre-wrap;word-wrap:break-word;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.55;max-height:340px;overflow:auto}
+pre mark{background:#E9E2FF;color:var(--p-deep);border-radius:4px;padding:0 2px}
+.fillnote{font-size:13px;color:var(--muted);padding:0 14px 10px}
+
+/* Calculator */
+.calc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.calc-out div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.calc-out b{display:block;font-family:"Bricolage Grotesque",sans-serif;font-size:24px;color:var(--p-deep)}
+.calc-out span{font-size:13px;color:var(--muted)}
+.calc-out .good b{color:var(--ok)} .calc-out .bad b{color:var(--coral)}
+
+/* Callouts */
+.dfy{background:var(--ink);color:#fff;border-radius:var(--r);padding:20px 22px}
+.dfy h3{font-size:22px;color:#fff;margin-top:4px}
+.dfy p{color:#D7D4E8;margin-top:6px}
+.dfy .eyebrow{color:var(--lav)}
+.dfy a.btn{margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:11px 20px;border:2px solid var(--p);background:var(--p);color:#fff;text-decoration:none;cursor:pointer;min-height:46px}
+.btn.light{background:#fff;color:var(--ink);border-color:#fff}
+.btn.ghost{background:#fff;color:var(--ink);border-color:var(--line2)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.plan{display:grid;gap:8px;margin-top:12px}
+.plan div{display:flex;gap:12px;align-items:baseline;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:15px}
+.plan b{color:var(--p-deep);min-width:110px}
+.celebrate{text-align:center;background:linear-gradient(135deg,var(--p-deep),var(--p));color:#fff;border-radius:24px;padding:32px 22px}
+.celebrate h2{color:#fff;font-size:clamp(30px,6vw,42px)}
+.celebrate p{color:#E4DDFF;margin:10px auto 0;max-width:52ch}
+.pager{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px solid var(--line)}
+.pager button{font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:11px 18px;border:1.5px solid var(--line2);background:#fff;color:var(--ink);cursor:pointer;min-height:46px}
+.pager .next{background:var(--p);border-color:var(--p);color:#fff}
+.status{font-size:14px;color:var(--p);font-weight:600;min-height:1.4em;margin-top:8px}
+footer{background:var(--ink);color:#C9C6DD;padding:28px 0 calc(28px + env(safe-area-inset-bottom,0px));font-size:13.5px}
+footer .logo{color:#fff;font-size:22px}
+footer .logo span{color:var(--lav)}
+footer p{margin-top:8px;max-width:70ch}
+@media print{.mods,.pager,.cbtn,.btn-row,.btn{display:none!important}.panel[hidden]{display:grid!important}pre{max-height:none}}
+</style>
+</head>
+<body>
+
+<header class="mast"><div class="wrap">
+<div class="logo">sites<span>by</span>nik</div>
+<span class="eyebrow">The DIY course</span>
+<h1>Shopify Launch Kit</h1>
+<p class="lede">Build and launch your Shopify store yourself, start to finish. Every step tells you exactly where to click, every prompt fills in with your own store details, and your progress saves as you go.</p>
+<div class="overall"><div class="bar"><i id="ovbar"></i></div><span class="pct" id="ovpct">0 of 0 steps</span></div>
+</div></header>
+
+<nav class="mods" aria-label="Modules"><div class="wrap"><div class="strip" id="strip" role="tablist"></div></div></nav>
+<main><div class="wrap" id="main"></div></main>
+
+<footer><div class="wrap">
+<div class="logo">sites<span>by</span>nik</div>
+<p>© 2026 Sites by Nik · sitesbynik.com · @sitesbynik. This course is for the person who bought it; please don’t share your link.</p>
+<p>General education only, not legal, tax or financial advice. Rules depend on your state and what you sell, so confirm legal and tax questions with a professional. Shopify prices and menu names change; check shopify.com/pricing before you buy. Not affiliated with or endorsed by Shopify. Prices last checked November 2026.</p>
+</div></footer>
+
+<script>
+/* ===== Settings Nik can change ===== */
+const HELP_EMAIL="sitesbynik@gmail.com";
+const COURSE_PRICE="$97";
+const SITE_CHECK_PRICE="$97";
+const SITE_URL="https://sitesbynik.com";
+
+/* ===== Course content ===== */
+const M=[
+{id:"welcome",n:"00",name:"Welcome",time:"10 min",finish:"Your launch date is set and your link is saved.",intro:"Welcome! This course walks you through building your Shopify store in the exact order I build stores for my clients. Start here, then go module by module.",why:"<b>How it works:</b> check off each step as you finish it. Your answers and progress save on this device automatically. Fill in your store details in the workbook boxes, and every AI prompt in the course fills in with your info so you can copy and paste.",
+ workbook:"welcome",
+ groups:[{t:"Before you begin",s:[
+  {t:"Save your course link",d:"Bookmark this page, or tap <b>Email me my link</b> below so you can always find it. Your progress saves in this browser, so come back on the same phone or computer."},
+  {t:"Pick your launch date",d:"Most people finish in 3 focused days or about 2 weeks of evenings. Choose a date in the workbook box and you’ll get a simple plan."},
+  {t:"Open Claude in another tab",d:"Every box marked <b>Prompt</b> is meant to be pasted into Claude (claude.ai). Anything in [BRACKETS] is a blank to fill in. Fill in your store details in module 01 and most blanks fill themselves."},
+  {t:"Gather your brand assets",d:"<ul><li>Logo as a PNG with a transparent background</li><li>2–4 brand colors (hex codes like #5B3FD9)</li><li>Product photos, or a plan for getting them</li><li>One sentence on who your store is for</li></ul>"},
+  {t:"Have your business info ready",d:"Legal business name, address (a PO box or virtual address if you work from home), and an EIN if you have one. Module 03 covers getting these."}
+ ]}]},
+
+{id:"brief",n:"01",name:"Your store brief",time:"30 min",finish:"You have a store brief from Claude saved below.",intro:"Your store brief is the foundation for everything: your colors, fonts, homepage layout, collections and pages. Fill in your details, copy the prompt, and save Claude’s answer.",
+ workbook:"brief",
+ groups:[{t:"Build your brief",s:[
+  {t:"Fill in your store details",d:"Use the workbook box below. Be specific. “Women 25–40 who love soft, cozy loungewear” beats “women.”"},
+  {t:"Copy the store brief prompt into Claude",d:"It fills in with your answers automatically. Paste it into Claude and send."},
+  {t:"Ask for changes until you love it",d:"Reply to Claude with things like “make the colors warmer” or “suggest 3 more collection names.”"},
+  {t:"Paste your final brief into the workbook",d:"Later prompts use it, so it fills in for you every time."}
+ ]}],
+ copy:[{h:"Prompt · Your store brief",sub:"Use this first. Save the answer below.",b:"I'm building a Shopify store and need a one-page store brief I can reuse.\n\nStore name: [NAME]\nWhat I sell: [PRODUCTS]\nHow I get products: [HOW I GET PRODUCTS]\nWho it's for: [CUSTOMER]\nPrice range: [PRICE RANGE]\nBrand vibe in 3 words: [3 WORDS]\nBrand colors: [HEX CODES]\nStores I like the look of: [INSPIRATION]\n\nGive me: a one-line brand promise, 3 brand voice rules, a color palette with hex codes, a font pairing available in Shopify, a homepage section order, 4–6 starter collections, and a list of pages I need."}]},
+
+{id:"plan",n:"02",name:"Plan & account",time:"20 min",finish:"Your store exists, is named, and is password-protected.",intro:"Pick the right Shopify plan and create your store.",groups:[
+ {t:"Choose your plan",table:{head:["Plan","Monthly","Paid yearly","Card rate (online)","Best for"],rows:[
+  ["Starter","$5","—","5% + 30¢","Selling through social links only. No full online store."],
+  ["Basic","$39","$29/mo","2.9% + 30¢","Most new stores. Start here.",1],
+  ["Grow","$105","$79/mo","2.7% + 30¢","Steady sales and a small team."],
+  ["Advanced","$399","$299/mo","2.5% + 30¢","High volume, advanced reports."]
+ ]},s:[
+  {t:"Start the free trial",path:"shopify.com → Start free trial",d:"New stores get a short free trial, then a low intro price for the first few months. Check the current offer on the pricing page."},
+  {t:"Pick Basic when the trial ends",path:"Settings → Plan",d:"Basic has everything a new store needs. Upgrade later only when your sales justify it. Paying yearly saves about 25%."},
+  {t:"Name the store",path:"Settings → General",d:"Type your brand name exactly. It shows in your footer, emails and browser tab. Replace any “My Store” text."},
+  {t:"Set the store defaults",path:"Settings → General → Store defaults",d:"Currency, time zone and unit system. Set these before you add products or take orders."},
+  {t:"Keep the store locked while you build",path:"Online Store → Preferences → Password protection",d:"Leave password protection on until launch day. Visitors see a coming-soon page."}
+ ]}]},
+
+{id:"business",n:"03",name:"Business setup",time:"1–2 hrs (plus waiting)",finish:"You have your business name, EIN and a business bank account.",intro:"Set up the business side before you take a single payment.",why:"<b>Why first:</b> payments, taxes and your legal pages all need your business name and ID numbers.",
+ workbook:"business",
+ groups:[
+ {t:"Business basics",s:[
+  {t:"Choose a business structure",d:"An LLC keeps business debts separate from your personal assets. Form it with your state’s business filing office."},
+  {t:"Get a free EIN",path:"irs.gov → Apply for an EIN",d:"Use it for your bank account, Shopify Payments, sales tax and suppliers. It’s free from the IRS. Never pay a site to get one."},
+  {t:"Register your store name if it differs",d:"If the store name isn’t your LLC’s name, file a DBA (fictitious name) with your state or county."},
+  {t:"Open a business bank account",d:"Keep all store money separate from personal money. It makes taxes simple."},
+  {t:"Check local licenses",d:"Many cities and counties require a business tax receipt, even for home-based online shops. Check your city and county websites."}
+ ]},
+ {t:"Sales tax",s:[
+  {t:"Register for sales tax in your state",d:"Register with your state’s Department of Revenue. You’ll get a certificate number and a filing schedule."},
+  {t:"Turn on tax collection",path:"Settings → Taxes and duties → United States",d:"Click Collect sales tax, add your state and registration number. Shopify calculates the rate at checkout."},
+  {t:"Watch other states’ limits",d:"Once your sales into another state pass its threshold (often $100,000), you need to register there too. Shopify’s Taxes page alerts you."}
+ ]}]},
+
+{id:"domain",n:"04",name:"Domain & email",time:"45 min (plus up to 48 hrs)",finish:"Your store has its own .com and a branded email.",intro:"Get your own web address and a branded email so customers trust you and your emails reach inboxes.",groups:[
+ {t:"Domain",s:[
+  {t:"Buy or connect a domain",path:"Settings → Domains",d:"Buy through Shopify for automatic setup, or click <b>Connect existing domain</b> if you bought it at GoDaddy, Namecheap or similar."},
+  {t:"If you connect an outside domain",path:"Your domain host → DNS settings",d:"<ul><li>A record: Name <code>@</code> → <code>23.227.38.65</code></li><li>CNAME: Name <code>www</code> → <code>shops.myshopify.com</code></li><li>Delete other <code>@</code> A records and any forwarding</li><li>Back in Shopify, click <b>Verify connection</b>. It can take up to 48 hours.</li></ul>"},
+  {t:"Set it as the primary domain",path:"Settings → Domains → Change primary domain",d:"This is the address shoppers see. Wait until it says <b>SSL active</b> before sharing links."}
+ ]},
+ {t:"Branded email",s:[
+  {t:"Create an email on your domain",d:"Use Google Workspace, Zoho Mail or your domain host. Common choices: hello@ for marketing and support@ for orders."},
+  {t:"Set the sender email",path:"Settings → Notifications → Sender email",d:"Enter your branded address, save, then click the link in the verification email."},
+  {t:"Authenticate your domain",path:"Settings → Notifications → Sender email → Authenticate",d:"Shopify shows DNS records. Copy each one into your domain host’s DNS page, wait, then click Verify. Authenticated email lands in inboxes instead of spam."}
+ ]}]},
+
+{id:"payments",n:"05",name:"Payments",time:"30 min",finish:"Shopify Payments is on and payouts are verified.",intro:"Turn on payments so you can get paid, and make sure the money reaches your bank.",groups:[
+ {t:"Get paid",s:[
+  {t:"Activate Shopify Payments",path:"Settings → Payments → Activate Shopify Payments",d:"Enter your legal business name, EIN, address and business bank account. Using Shopify Payments avoids the extra fee Shopify charges for outside processors."},
+  {t:"Finish payout verification",path:"Settings → Payments → Payouts",d:"If it says payouts pending, upload your ID and confirm your bank. You can take orders meanwhile; money is held until verification clears."},
+  {t:"Turn on Shop Pay, Apple Pay and Google Pay",path:"Settings → Payments → Shopify Payments → Manage",d:"Faster checkout means more finished orders."},
+  {t:"Add PayPal (optional)",path:"Settings → Payments → Add payment method",d:"Some shoppers only trust PayPal. Connect your business PayPal account."},
+  {t:"Set your statement descriptor",path:"Shopify Payments → Manage → Statement descriptor",d:"Use your brand name so customers recognize the charge. Unrecognized charges turn into chargebacks."},
+  {t:"Know your two bank settings",d:"<b>Payouts</b> (where sales money goes) is under Settings → Payments. <b>Billing</b> (the card Shopify charges for your plan and apps) is under Settings → Billing. Never type bank numbers into a chat or email."}
+ ]},
+ {t:"Checkout",s:[
+  {t:"Review checkout settings",path:"Settings → Checkout",d:"Require email, turn on the email marketing checkbox so buyers can join your list, and turn on address autocomplete."}
+ ]}]},
+
+{id:"design",n:"06",name:"Design your store",time:"2–4 hrs",table:{title:"Theme upload errors and fixes",head:["What you see","What to do"],rows:[["“Missing layout/theme.liquid” or “not a valid theme”","The zip has an extra folder around the theme folders. Re-zip the folders themselves, or ask Claude for a new zip with the folders at the top level."],["“File too large”","The zip is over 50 MB, usually from big images. Ask Claude to remove large images from the theme and upload your photos in Customize instead."],["Upload fails with an error about a file or setting","Copy the exact message into the fix prompt. Claude repairs the file and gives you a new zip."],["Uploads fine but a page looks broken or blank","Preview each page, note which one, and describe it in the fix prompt."],["You can’t edit a section in Customize","Ask Claude to add editable settings (a schema) to that section."]]},finish:"Your homepage looks like your brand on desktop and phone.",intro:"Design your store’s look with Claude, then bring it into Shopify. Read the box first; it saves hours.",why:"<b>The key fact:</b> Shopify stores run on a <b>theme</b> written in Shopify’s own code (Liquid). A normal web page from Claude can’t be uploaded as your store on its own. So there are three ways to use your Claude layout, from easiest to most custom. Most stores only need Method 1. Want a fully custom design? Method 3 lets you prompt your whole layout and upload it as a theme .zip, with a full walkthrough below.",groups:[
+ {t:"Step A · Design the preview",s:[
+  {t:"Run the homepage layout prompt",d:"Claude builds a visual preview of your homepage. Ask for changes until you love it. This is your blueprint."},
+  {t:"Pick a free Shopify theme close to your preview",path:"Online Store → Themes → Theme library",d:"Dawn and Horizon are free, fast and flexible. Choose the one whose layout looks most like your preview."}
+ ]},
+ {t:"Step B · Bring it into Shopify (choose one method)",s:[
+  {t:"Method 1 (easiest): Rebuild it in the theme editor",path:"Online Store → Themes → Customize",d:"Follow your preview section by section: hero image, featured collection, image with text, testimonials, email signup. Set colors and fonts in Theme settings (gear icon). Use the rebuild guide prompt for click-by-click steps."},
+  {t:"Method 2: Paste custom sections",path:"Customize → Add section → Custom Liquid",d:"For a section the theme doesn’t have, use the custom section prompt. Claude gives you one block of code. Add a <b>Custom Liquid</b> section where you want it, paste the code, and save."},
+  {t:"Method 3 (most custom): Prompt a full layout and upload it as a theme",path:"Online Store → Themes → Theme library → Add theme → Upload zip file",d:"Claude builds your whole store design as a theme .zip file, and you upload it to Shopify. It’s the most custom option, and you don’t need to know code. Follow the full walkthrough in the next section.",tip:"<b>Safety rule:</b> uploaded themes arrive unpublished, so your live store is safe until you click Publish."}
+ ]},
+ {t:"Method 3 walkthrough · Prompt your layout as a theme .zip",s:[
+  {t:"Approve your homepage preview first",d:"Run the homepage layout prompt above and ask for changes until you love it. Your theme will be built to match it, so finish the design before you ask for code."},
+  {t:"Run the full custom theme prompt",d:"Copy <b>Prompt · Full custom theme</b> below into the same Claude chat as your preview. It asks Claude to build every theme file and package them as one .zip you can download.",tip:"<b>If Claude only shows code:</b> reply “Please package all the theme files into one .zip file I can download, with the folders at the top level.”"},
+  {t:"Download the .zip",d:"Tap the download button on the file Claude made. On a phone it saves to your Files or Downloads app; on a computer, to your Downloads folder. <b>Don’t unzip it.</b> Shopify needs the .zip itself."},
+  {t:"Only if you got a folder instead: zip it the right way",d:"Open the theme folder until you see these folders: <code>layout</code>, <code>templates</code>, <code>sections</code>, <code>snippets</code>, <code>assets</code>, <code>config</code>, <code>locales</code>. Select <b>those folders</b>, not the folder around them, then compress:<ul><li><b>Mac:</b> right-click → Compress</li><li><b>Windows:</b> right-click → Compress to ZIP file (or Send to → Compressed folder)</li><li><b>iPhone/iPad:</b> Files app → Select → tap the folders → ⋯ → Compress</li><li><b>Android:</b> Files app → select the folders → ⋮ → Compress</li></ul>"},
+  {t:"Check the .zip before you upload",d:"<ul><li>It ends in <code>.zip</code></li><li>It’s under 50 MB (Shopify’s limit)</li><li>When you open it, the first things inside are <code>layout</code>, <code>templates</code> and the other folders, not another folder</li></ul>"},
+  {t:"Back up the theme you have now",path:"Online Store → Themes → ⋯ → Duplicate",d:"Makes a copy of your current theme so you can always go back."},
+  {t:"Upload the theme",path:"Online Store → Themes → Theme library → Add theme → Upload zip file",d:"Choose your .zip and tap <b>Upload</b>. After a few seconds it appears in your Theme library, unpublished. Customers can’t see it yet."},
+  {t:"Preview it like a shopper",path:"Theme library → ⋯ → Preview",d:"Click through the homepage, a collection, a product, the cart, search and the contact page. Check it on your phone too. Write down anything that looks off."},
+  {t:"Add your real content",path:"Theme library → Customize",d:"Swap in your logo, photos, headlines and links in the theme editor, just like a regular theme. If a section can’t be edited there, ask Claude to add editable settings to it."},
+  {t:"Fix problems with Claude",d:"If the upload fails or something looks wrong, copy the <b>exact</b> error message or describe the problem, paste it into the same Claude chat with the fix prompt below, and upload the new .zip Claude gives you. Then delete the broken copy from your Theme library."},
+  {t:"Publish when you love it",path:"Theme library → ⋯ → Publish",d:"Your new design goes live. Your old theme stays in the Theme library as a backup."},
+  {t:"Making changes later",d:"Don’t edit a live theme’s code by hand. Ask Claude for the change and a new .zip, upload it, preview it, then publish. Small text and photo changes can be made anytime in Customize."}
+ ]},
+ {t:"Finish the look",s:[
+  {t:"Upload your logo and favicon",path:"Customize → Header → Logo · Theme settings → Logo and favicon",d:"Use the transparent PNG."},
+  {t:"Set brand colors and fonts",path:"Customize → Theme settings (gear) → Colors · Typography",d:"Check that button text is readable on the button color."},
+  {t:"Add social links",path:"Customize → Theme settings → Social media",d:"Paste full profile links, then turn on social icons in the Footer section."},
+  {t:"Check it on your phone",d:"Most shoppers are on mobile. Tap through the menu, buttons and product pages."}
+ ]}],
+ copy:[
+  {h:"Prompt · Homepage layout preview",sub:"Claude builds a visual mockup you can react to.",b:"Using my store brief below, design a homepage preview for my Shopify store as a single HTML page I can view.\n\nFollow the structure Shopify themes use, so I can rebuild it in Shopify's theme editor. Use these sections, top to bottom:\n1. Announcement bar with one offer\n2. Header with logo, menu and cart\n3. Hero: big image, headline, one sentence, 2 buttons\n4. Featured collection grid (4 products)\n5. Shop-by-category tiles\n6. Image with text: my story\n7. Customer reviews section (I'll add real reviews later)\n8. Email signup with a discount offer\n9. Footer with policy links and social icons\n\nUse my brand colors and fonts, copy in my brand voice, and placeholder product images. Make it look great on a phone.\n\nMy store brief:\n[STORE BRIEF]"},
+  {h:"Prompt · Rebuild guide for the theme editor",sub:"Turns your preview into click-by-click Shopify steps.",b:"Here is my homepage preview. I'm using the free Shopify theme [Dawn / Horizon]. Turn this design into a click-by-click rebuild guide for the Shopify theme editor.\n\nFor each section give me: which Shopify section to add, every setting to change (colors, layout, image size, columns), and the exact text to paste in. Also list the Theme settings I should change for colors and fonts.\n\n[PASTE OR DESCRIBE YOUR PREVIEW]"},
+  {h:"Prompt · Custom section (Method 2)",sub:"For one section your theme doesn’t have.",b:"Write a self-contained section for my Shopify store that I can paste into a 'Custom Liquid' section in the theme editor.\n\nSection: [DESCRIBE IT, e.g. 'a 3-step how-it-works strip with icons']\nBrand colors: [HEX CODES]\nFont: inherit from the theme\nText: [YOUR WORDS or 'write it in my brand voice']\n\nRules: one block of HTML and CSS with styles scoped to a unique class so nothing else on my store changes. No external scripts. It must look right on mobile. Put links in plain <a> tags I can edit."},
+  {h:"Prompt · Full custom theme (Method 3)",sub:"Advanced. Test with Preview before publishing.",b:"Build a complete Shopify Online Store 2.0 theme for my store, ready to zip and upload through Online Store → Themes → Add theme → Upload zip file.\n\nInclude the standard folder structure (layout, templates as JSON, sections, snippets, assets, config, locales) with theme.liquid, settings_schema.json and templates for index, product, collection, cart, page, contact, search, password and 404. Every section needs a schema so I can edit text, images, colors and links in the theme editor without code.\n\nDesign: match this homepage preview: [PASTE OR DESCRIBE]\nBrand colors: [HEX CODES]\nFonts: [FONT NAMES from Shopify's font library]\n\nPackage everything as ONE downloadable .zip file. Put the theme folders (layout, templates, sections, snippets, assets, config, locales) at the top level of the zip, with no extra folder around them, and keep it under 50 MB. Don't use any external apps, scripts or paid fonts.\n\nWhen you're done, give me the .zip, the steps to upload it at Online Store → Themes → Theme library → Add theme → Upload zip file, and a checklist to test before I publish."},
+  {h:"Prompt · Fix a theme upload error",sub:"Paste the exact error Shopify showed you.",b:"I uploaded the theme you built to Shopify and got a problem.\n\nWhat happened: [PASTE THE EXACT ERROR MESSAGE, or describe what looks wrong and on which page]\n\nPlease fix the theme files, explain the fix in one sentence, and give me a new downloadable .zip with the theme folders at the top level (no extra folder around them), under 50 MB."}
+ ]},
+
+{id:"products",n:"07",name:"Products & collections",time:"20 min per product",finish:"Your first products are live in organized collections.",intro:"Every product listing needs the same parts. Build one well, then copy the pattern.",groups:[
+ {t:"Get products in",s:[
+  {t:"Make it yourself or buy wholesale",path:"Products → Add product",d:"Add each product by hand with photos, price and inventory count."},
+  {t:"Print-on-demand",path:"Apps → Shopify App Store → Printful or Printify",d:"Install, connect your store, and create products in the app so orders route automatically. Order samples first."},
+  {t:"Dropshipping",path:"Apps → Shopify App Store → DSers or a US-warehouse supplier app",d:"Connect your supplier account. Prefer items that ship from US warehouses for faster delivery and fewer import charges."},
+  {t:"Digital products",path:"Apps → Shopify App Store → Digital Downloads",d:"Create the product, uncheck <b>This is a physical product</b>, then attach the file in the app."}
+ ]},
+ {t:"Every listing",s:[
+  {t:"Title, description and photos",path:"Products → [product]",d:"Clear title (design + product type). Description using the prompt below. Lifestyle photo first, then detail shots."},
+  {t:"Price, compare-at price and cost per item",d:"Enter cost per item so Shopify shows your profit. Only show a crossed-out compare-at price if you truly sold it at that price."},
+  {t:"Variants and size chart",d:"Add sizes and colors. Apparel needs a size chart, fiber content and country of origin."},
+  {t:"Alt text on every image",d:"Click each image → Add alt text. Describe it plainly: “Pink cotton tee with gold lettering.” It helps Google and shoppers using screen readers."},
+  {t:"Search engine listing",path:"Bottom of the product page → Edit",d:"Page title under 70 characters, description under 160."},
+  {t:"Status and sales channel",d:"Set Status to Active and make sure Online Store is checked. Draft products are invisible."}
+ ]},
+ {t:"Collections",s:[
+  {t:"Create a Shop All collection",path:"Products → Collections → Create collection",d:"Choose <b>Automated</b> with the condition <b>Price is greater than 0</b>. Every product, including future ones, joins automatically."},
+  {t:"Create category collections with tags",d:"Automated, condition <b>Product tag is equal to</b> your tag (for example <code>hoodies</code>). Add that tag to products and they sort themselves."}
+ ]}],
+ copy:[{h:"Prompt · Product descriptions",sub:"Run once per product, or paste several at once.",b:"Write a Shopify product description in my brand voice.\n\nProduct: [PRODUCT NAME]\nWhat it is and what makes it special: [DETAILS]\nMaterials and fit (from my supplier): [DETAILS]\nWho it's for: [CUSTOMER]\nBrand voice: [3 WORDS]\n\nFormat: one hook line, 2–3 sentences of story, a 'Why you'll love it' list (3 points), a 'Perfect for' list (3 occasions), a 'The details' list (materials, fit, care, country of origin), and one closing line. Also give me an SEO title under 70 characters, a meta description under 160 characters, alt text for 3 photos, and 6 product tags. Don't invent materials or claims I didn't give you."}]},
+
+{id:"pages",n:"08",name:"About, contact & FAQ",time:"1 hr",finish:"Your trust pages are written and in your menus.",intro:"The pages that build trust and answer questions before customers have to ask.",groups:[
+ {t:"Pages",s:[
+  {t:"About page",path:"Online Store → Pages → Add page",d:"Who the brand is for, your story in your own words, and what makes your products different. Link it in the header and footer."},
+  {t:"Contact page",path:"Online Store → Pages → Add page → Template: contact",d:"Your email, response time, what to include (order number, photos) and social links. The contact template adds a form."},
+  {t:"FAQ page",path:"Online Store → Pages → Add page",d:"Shipping times, returns, sizing, order tracking, payment methods."}
+ ]},
+ {t:"Menus",s:[
+  {t:"Build the header menu",path:"Content → Menus → Main menu",d:"Keep it short: Shop All, Collections, About, Contact. Edit the existing Main menu. A brand new menu won’t appear in the header."},
+  {t:"Make a dropdown",path:"Content → Menus → Main menu",d:"Add the parent item, add the child items, then drag each child slightly right under the parent by its six-dot handle. Save."},
+  {t:"Build the footer menu",path:"Content → Menus → Footer menu",d:"Add every policy (Link → Policies), plus Contact, About and FAQ. Save."},
+  {t:"Set the homepage title and description",path:"Online Store → Preferences",d:"This is what Google shows. Upload a social sharing image too."}
+ ]}],
+ copy:[
+  {h:"Prompt · About page",b:"Write the About page for my Shopify store in my brand voice. Keep it short and warm.\n\nStore: [NAME]\nWhat I sell and who it's for: [PRODUCTS] for [CUSTOMER]\nWhy I started it (my words): [YOUR STORY, a few sentences]\nWhat makes my products different: [DETAILS]\n\nStructure: a headline, 2 short paragraphs of story, a 'What we stand for' list of 3 points, and a closing line with a button label to shop."},
+  {h:"Prompt · FAQ page",b:"Write an FAQ page for my Shopify store. Use only the facts I give you; put [CONFIRM] anywhere you'd have to guess.\n\nWhat I sell: [PRODUCTS]\nProcessing time: [X–Y business days]\nShipping time and cost: [DETAILS, free shipping threshold]\nWhere I ship: [US only / countries]\nReturns: [YOUR RULES]\nSupport email and response time: [SUPPORT EMAIL], 24–48 hours\n\nInclude 8–10 questions about shipping, tracking, returns, damaged items, sizing, payment methods and contacting us."},
+  {h:"Template · Contact page",b:"We'd love to hear from you!\n\nQuestions about an order, sizing or a product? Reach out anytime.\n\nEmail: [SUPPORT EMAIL]\nResponse time: We reply within 24–48 hours, Monday–Friday.\n\nTo help us help you faster, include:\n• Your order number (it's in your confirmation email)\n• Photos, if your item arrived damaged\n\nFollow us: [INSTAGRAM] · [TIKTOK]"}
+ ]},
+
+{id:"legal",n:"09",name:"Legal pages",time:"1 hr",finish:"All policies are customized and linked in your footer.",intro:"These pages are required by Shopify, payment processors, ad platforms and consumer protection law.",why:"<b>Important:</b> you must follow whatever your policies say. Edit every template to match how your store really works, and have an attorney review them if you can.",groups:[
+ {t:"Required policies",s:[
+  {t:"Refund policy",path:"Settings → Policies → Refund policy",d:"Return window, what’s eligible, who pays return shipping, how refunds are issued, how to start a return."},
+  {t:"Shipping policy",path:"Settings → Policies → Shipping policy",d:"Processing time, shipping time, carriers, tracking, lost packages, wrong addresses. Only promise times you can meet."},
+  {t:"Privacy policy",path:"Settings → Policies → Privacy policy",d:"What you collect, why, which apps receive data (Shopify, email, ad pixels) and how customers opt out. Shopify’s template is a good base."},
+  {t:"Terms of service",path:"Settings → Policies → Terms of service",d:"Your legal business name, order acceptance, pricing errors, intellectual property, limits of liability, governing state, contact."},
+  {t:"Contact information",path:"Settings → Policies → Contact information",d:"Business name, address, email. Shopify shows it at checkout."},
+  {t:"Cookie banner and privacy choices",path:"Settings → Customer privacy",d:"Turn on the cookie banner if you use Meta, TikTok or Google tracking. Turn on the data sharing opt-out page for US state privacy laws."}
+ ]},
+ {t:"Put them on your store",s:[
+  {t:"Link every policy in the footer",path:"Content → Menus → Footer menu → Add menu item → Policies",d:"Shopify also links them in the checkout footer automatically."},
+  {t:"Search for leftover placeholders",d:"Look for [BRACKETS], old Gmail addresses and “My Store” in every policy."}
+ ]}],
+ table:{title:"Rules every store follows",head:["Rule","What it means for you"],rows:[
+  ["FTC Mail Order Rule","Ship within the time you state, or 30 days if you state none. If you’ll be late, tell the buyer and offer a refund."],
+  ["Fake reviews rule (FTC)","No fake, bought or AI-written reviews. Don’t hide negative reviews."],
+  ["Honest pricing (FTC)","Only show a crossed-out price you really charged."],
+  ["CAN-SPAM","Marketing emails need an unsubscribe link, your mailing address and honest subject lines."],
+  ["Privacy laws","Post a privacy policy and offer an opt-out of data sharing."],
+  ["Intellectual property","Only sell designs you own or license. No characters, sports logos, celebrity names or other brands’ logos."],
+  ["Textile labeling","Clothing listings show fiber content and country of origin."]
+ ]},
+ copy:[
+  {h:"Prompt · Customize your policies",sub:"Generate Shopify’s templates first, then paste them in with this.",b:"Here are Shopify's template policies for my store. Rewrite them in plain, friendly language to match exactly how my store works. Mark anything you're unsure of with [CONFIRM].\n\nBusiness legal name: [LEGAL NAME]\nStore name: [NAME]\nState: [STATE]\nSupport email: [SUPPORT EMAIL]\nWhat I sell and how I get it: [PRODUCTS] · [HOW I GET PRODUCTS]\nProcessing time: [X–Y business days]\nShipping: [CARRIERS, TIMES, COST, WHERE I SHIP]\nReturns: [WINDOW, WHAT'S ELIGIBLE, WHO PAYS RETURN SHIPPING]\nApps that collect data: [Shopify Email, Meta pixel, etc.]\n\n[PASTE THE TEMPLATE POLICIES]\n\nI understand this isn't legal advice and I'll have it reviewed."},
+  {h:"Template · Refund policy (made to order)",b:"Because every item is made just for you, we don't accept returns or exchanges for change of mind or wrong size. Please check the size chart before ordering.\n\nIf your item arrives damaged, defective or with a printing error, email [SUPPORT EMAIL] with your order number and photos within [30] days of delivery. We'll send a replacement or a full refund at no cost to you."},
+  {h:"Template · Refund policy (digital products)",b:"Because digital products are delivered instantly and can't be returned, all sales are final. If your file won't open, is damaged, or isn't what was described, email [SUPPORT EMAIL] within [14] days and we'll fix it, resend it or refund you."},
+  {h:"Template · Shipping policy",b:"Orders are processed in [1–5] business days, then shipped. Delivery estimates appear at checkout and are not guaranteed. Items in one order may arrive in separate packages. Tracking is emailed when your order ships.\n\nIf we can't ship within the time stated, we'll let you know and offer you the choice to wait or receive a full refund.\n\nPlease double-check your address. Orders returned because of an incorrect address can be reshipped at your cost."}
+ ]},
+
+{id:"shipping",n:"10",name:"Shipping & pricing",time:"45 min",finish:"Your shipping rates are set and every price makes a profit.",intro:"Set shipping rates customers understand and prices that still leave you a profit.",
+ workbook:"calc",
+ groups:[
+ {t:"Shipping",s:[
+  {t:"Open your shipping profile",path:"Settings → Shipping and delivery → General shipping rates",d:"This is where every rate customers see at checkout is set."},
+  {t:"Start with the United States only",d:"Delete other zones until you’re ready for international customs and longer delivery times."},
+  {t:"Add a standard rate",path:"US zone → Add rate",d:"Name it with the delivery time, like <code>Standard Shipping (5–8 business days)</code>, and set a flat price that covers your real cost."},
+  {t:"Add a free shipping threshold",path:"Add rate → Add conditions → Based on order price",d:"A $0 rate with a minimum, like $60. It raises your average order. Make sure your prices cover it."},
+  {t:"Print-on-demand or dropshipping rates",d:"Your supplier app may offer live rates at checkout. Either use those, or set flat rates that cover the supplier’s shipping charges."}
+ ]},
+ {t:"Pricing",s:[
+  {t:"Add up your true cost per sale",d:"Product cost + shipping you pay + payment fee (about 2.9% + 30¢ on Basic) + discount codes + a share of apps and ads. Use the profit calculator below."},
+  {t:"Aim for room to grow",d:"A common starting point is pricing at 2–3 times your product cost so discounts and ads still leave profit."}
+ ]}]},
+
+{id:"email",n:"11",name:"Email marketing",time:"1–2 hrs",finish:"Your pop-up, welcome series and abandoned checkout emails are on.",intro:"Capture emails from day one and let automations sell for you while you sleep.",why:"<b>Shopify Email</b> is built in. It includes 10,000 free emails a month; after that it’s $1 per 1,000 emails. Plenty for a new store.",groups:[
+ {t:"Connect and capture",s:[
+  {t:"Install Shopify Email and Shopify Forms",path:"Apps → Shopify App Store",d:"Both are free apps made by Shopify."},
+  {t:"Confirm your sender address is authenticated",path:"Settings → Notifications → Sender email",d:"Done in module 04. Unauthenticated email lands in spam."},
+  {t:"Create a welcome discount",path:"Discounts → Create discount → Amount off order",d:"For example WELCOME10 for 10% off, limited to one use per customer."},
+  {t:"Build a signup pop-up",path:"Apps → Forms → Create form → Pop-up",d:"Headline, offer, email field, button like Unlock My 10%. Attach the discount in the form’s success step. Match your brand colors."},
+  {t:"Turn on the footer signup",path:"Customize → Footer → Email signup",d:"A second place to capture emails."}
+ ]},
+ {t:"Automations (set once, run forever)",s:[
+  {t:"Welcome series",path:"Marketing → Automations → Create automation → Welcome new subscribers",d:"Email 1: the discount code. Email 2 (day 2): your story. Email 3 (day 4): best sellers."},
+  {t:"Abandoned checkout",path:"Marketing → Automations → Recover abandoned checkout",d:"Sends a reminder when someone starts checkout but doesn’t finish. Often the highest-earning email a store has."},
+  {t:"Abandoned cart and browse",path:"Marketing → Automations",d:"Reminders for shoppers who added to cart or looked at a product and left."},
+  {t:"Thank-you after purchase",path:"Marketing → Automations → First purchase upsell",d:"Thank them, set delivery expectations and suggest a matching product."},
+  {t:"Brand your order emails",path:"Settings → Notifications → Customize email templates",d:"Add your logo and accent color to order and shipping confirmations."}
+ ]},
+ {t:"Using another email platform instead",s:[
+  {t:"Connect Klaviyo, Kit or MailerLite",path:"Apps → Shopify App Store → [platform]",d:"Install the platform’s official Shopify app and sign in. Customers and orders sync automatically. Turn off Shopify Email automations so customers don’t get doubles."}
+ ]}],
+ copy:[{h:"Prompt · Welcome and recovery emails",b:"Write my Shopify store's email automations in my brand voice. Give me a subject line, preview text and body for each.\n\n1. Welcome email 1: deliver the code [CODE] for [OFFER]\n2. Welcome email 2 (day 2): my story and why I started\n3. Welcome email 3 (day 4): my 3 best sellers: [BEST SELLERS]\n4. Abandoned checkout reminder (sent after 1 hour)\n5. Abandoned checkout follow-up (after 24 hours)\n6. Thank-you after first purchase, with delivery expectations of [TIMES]\n\nStore brief: [STORE BRIEF]\n\nKeep each email short, with one button. No fake urgency or claims I can't back up."}]},
+
+{id:"apps",n:"12",name:"Essential apps",time:"30 min",finish:"You have only the apps you’ll use this month.",intro:"Start with a few free apps. Add more only when you have a real need.",groups:[
+ {t:"Starter apps",table:{head:["App","What it does","Cost"],rows:[
+  ["Shopify Email","Newsletters and automations","Free up to 10,000 emails/mo"],
+  ["Shopify Forms","Signup pop-ups","Free"],
+  ["Product Reviews or Judge.me","Show real customer reviews","Free plan"],
+  ["Shopify Inbox","Chat with shoppers","Free"],
+  ["Shopify Bundles","Sell sets at a bundle price","Free"],
+  ["Digital Downloads","Deliver digital files","Free"]
+ ]},s:[
+  {t:"Install only what you’ll use this month",d:"Every app can slow your store. Delete apps you stop using, and remove their leftover code if the app’s uninstall instructions ask you to."}
+ ]}]},
+
+{id:"launch",n:"13",name:"Test & launch",time:"1–2 hrs",finish:"Your password is off and your store is live!",intro:"Run one real order through every step before anyone else buys.",groups:[
+ {t:"Test",s:[
+  {t:"Place a real test order",d:"Buy your cheapest item with a real card, then refund yourself in Orders → [order] → Refund."},
+  {t:"Check the emails you received",d:"Order confirmation, shipping confirmation and welcome email should all show your logo and branded sender."},
+  {t:"Walk through on your phone",d:"Tap every menu link, collection, product, the cart and checkout. Make a fix list and fix it."},
+  {t:"Ask a friend to try",path:"Online Store → Themes → ⋯ → Preview → Share preview",d:"Send the link plus your store password. Ask what confused them."}
+ ]},
+ {t:"Launch",s:[
+  {t:"Confirm your plan is active",path:"Settings → Plan",d:"You can’t remove the password page without a paid plan."},
+  {t:"Remove the password",path:"Online Store → Preferences → Password protection",d:"Uncheck it and save. Your store is open."},
+  {t:"Announce it",d:"Send your first email campaign, post on every social account and add the store link to your bios."},
+  {t:"Daily for the first 2 weeks",d:"Check orders, answer messages within 24 hours, and write down every question customers ask. Those become FAQ answers and better product pages."}
+ ]}],
+ copy:[{h:"Prompt · Launch announcement",b:"Write my store launch announcement in my brand voice: one email (subject line, preview text, body, button), one Instagram caption, one TikTok caption with a hook for the first 2 seconds, and 3 story slides of text.\n\nStore: [NAME]\nLaunch offer: [OFFER AND END DATE]\nHero products: [BEST SELLERS]\nStore link: [STORE URL]\n\nNo fake scarcity. Keep it warm and exciting."}]},
+
+{id:"bonus",n:"14",name:"Bonus: Sell & deliver automatically",time:"1–2 hrs",finish:"A test buyer pays and lands on your product page automatically.",intro:"Want to sell your own digital products, courses or services, like building websites for others? This is the exact setup I use: a Stripe payment link that sends buyers straight to their product, hosted on a free web page. No sending links by hand.",why:"<b>How it works:</b> a customer pays through a Stripe payment link → Stripe instantly sends them to a web address you chose → that page is their product or next step. You set it up once and every sale delivers itself. Selling physical items or files from your Shopify store? Use the Digital Downloads app from module 07 instead.",groups:[
+ {t:"Set up Stripe",s:[
+  {t:"Create your Stripe account",path:"stripe.com → Start now",d:"Sign up with your business email, then finish <b>Activate payments</b>: business type, legal name, EIN (or SSN if you’re a sole proprietor) and your business bank account for payouts."},
+  {t:"Brand your checkout and receipts",path:"Settings → Branding",d:"Add your logo, icon and brand color so the payment page looks like your business."},
+  {t:"Turn on receipts",path:"Settings → Customer emails",d:"Turn on <b>Successful payments</b> so buyers automatically get an email receipt."}
+ ]},
+ {t:"Host your product page for free (GitHub Pages)",s:[
+  {t:"Make your product page",d:"Your product can be one web page: a course like this one, a guide, a workbook, or a thank-you page with next steps. Use the delivery page prompt below to have Claude build it as a single .html file."},
+  {t:"Create a GitHub account and a repository",path:"github.com → Sign up · then + → New repository",d:"Name it after your business (for example <code>yourbrand</code>), make it <b>Public</b>, and tap Create."},
+  {t:"Upload your pages",path:"Your repository → Add file → Upload files",d:"Upload your homepage as <code>index.html</code> and your product page with a hard-to-guess name like <code>course-k4p8z2.html</code>. Tap Commit changes.",tip:"<b>Names matter:</b> file names are case-sensitive. <code>Index.html</code> is not the same as <code>index.html</code>; check before you commit."},
+  {t:"Turn on GitHub Pages",path:"Repository → Settings → Pages",d:"Under Build and deployment, choose <b>Deploy from a branch</b>, pick <b>main</b> and <b>/(root)</b>, then Save. In a minute or two your site is live at <code>yourname.github.io/yourrepo</code>."},
+  {t:"Connect your own domain (optional)",path:"Settings → Pages → Custom domain",d:"Type your domain and save. Then at your domain host’s DNS page add:<ul><li>A records for <code>@</code> → <code>185.199.108.153</code>, <code>185.199.109.153</code>, <code>185.199.110.153</code>, <code>185.199.111.153</code></li><li>CNAME for <code>www</code> → <code>yourname.github.io</code></li></ul>When GitHub says the DNS check passed, turn on <b>Enforce HTTPS</b>. It can take up to 48 hours."},
+  {t:"Know what “public” means",d:"Anyone who browses your GitHub repository could find your files. A hard-to-guess file name keeps your product away from casual visitors and search engines, which is fine for most starter products. When sales grow, consider a private repository (a paid GitHub plan) or a course platform."}
+ ]},
+ {t:"Deliver automatically with a Stripe payment link",s:[
+  {t:"Create the payment link",path:"Stripe dashboard → search “Payment Links” → + New",d:"Add a product name, description, image and price."},
+  {t:"Send buyers to their product",path:"Payment link → After payment tab",d:"Choose to <b>redirect customers to your website</b> and paste your product page’s full address, like <code>https://yourbrand.com/course-k4p8z2.html</code>."},
+  {t:"Help buyers keep their link",d:"Put a note at the top of your product page: “Bookmark this page.” Add an <b>Email me my link</b> button (the delivery page prompt includes one) so they can send it to themselves."},
+  {t:"Put the payment link on your website and socials",d:"Use it as the link on your Buy button, in your bio and in posts. Every buyer goes payment → product with no work from you."},
+  {t:"Test it with a real purchase",path:"Stripe → Payments → [your payment] → Refund",d:"Buy your own product once, make sure you land on the product page, then refund yourself."},
+  {t:"Handle “I lost my link”",d:"Search the buyer’s email in Stripe → Payments to confirm the purchase, then send them the product page link."}
+ ]},
+ {t:"Selling a service, like building websites",s:[
+  {t:"Make a deposit link",path:"Stripe → Payment Links → + New",d:"Create a link for 50% of your package price, named like “Starter Website: 50% deposit.” Make one per package."},
+  {t:"Redirect to your client intake page",path:"Payment link → After payment tab",d:"Send new clients to a thank-you page that tells them what happens next and links to your intake form (logo, photos, text, prices, links). Use the delivery page prompt below and describe your next steps."},
+  {t:"Collect the final payment",d:"When the site is ready and approved, send a second payment link for the remaining 50% before you hand it over or go live."},
+  {t:"Write your policies down",d:"Put your timeline, revision rounds, refund policy and what’s not included on your website and in your intake page, so every client knows before paying."}
+ ]}],
+ copy:[
+  {h:"Prompt · Delivery or thank-you page",sub:"Builds the page buyers land on after paying.",b:"Build me a single-page website (one .html file) that customers land on right after they pay me through a Stripe payment link.\n\nBusiness name: [NAME]\nWhat they bought: [PRODUCT OR SERVICE]\nWhat this page should do: [e.g. 'be the full course', 'link to their download', or 'explain next steps and link to my intake form']\nMy next steps for them: [STEPS]\nSupport email: [SUPPORT EMAIL]\nBrand colors and vibe: [HEX CODES] · [3 WORDS]\n\nInclude: a warm thank-you headline, a note to bookmark the page, an 'Email me my link' button that opens their email app with this page's address in the message, and my support email. Make it look great on a phone. Add <meta name=\"robots\" content=\"noindex\"> so search engines don't list it. Everything in one file, no external scripts."},
+  {h:"Prompt · Simple sales page",sub:"The page with your Buy button.",b:"Build me a one-page sales page (one .html file) for my product.\n\nBusiness name: [NAME]\nProduct: [PRODUCT OR SERVICE] · Price: [PRICE]\nWho it's for: [CUSTOMER]\nWhat they get: [LIST]\nThe problem it solves: [DETAILS]\nMy Stripe payment link: [PAYMENT LINK]\nBrand colors and vibe: [HEX CODES] · [3 WORDS]\n\nInclude: a clear headline, who it's for, what's inside, the price, a Buy button that goes to my payment link, a short FAQ (including how they get access after paying), and my refund policy: [POLICY]. Only use real reviews; leave a spot for them and don't invent any. Make it look great on a phone."}
+ ]},
+{id:"landing",n:"15",name:"Bonus: Landing pages",time:"1–3 hrs",finish:"Your landing page is live, works on a phone, and its button goes to the right place.",intro:"A landing page is a single page with one job: get visitors to take one action, like buying one product, joining your email list, booking a call or grabbing a launch offer. It’s where you send people from your bio link, ads and posts.",why:"<b>Two ways to build one:</b> <b>A) Inside your Shopify store</b>, best for selling a product from your store, since checkout and inventory are already set up. <b>B) As a standalone page</b> with Claude, hosted free on GitHub Pages (module 14), best for courses, services, waitlists and offers that live outside your store. Plan it the same way either way.",groups:[
+ {t:"Plan it (both ways)",s:[
+  {t:"Pick ONE goal",d:"Buy this product, join the waitlist, book a call, or claim the offer. One page, one goal, one button repeated. Pages that ask for several things get fewer clicks."},
+  {t:"Know who it’s for and where they come from",d:"Someone tapping your bio link on Instagram needs a quick, phone-friendly page. Write down who they are and what they want in one sentence."},
+  {t:"Use the parts that work",d:"<ul><li><b>Headline:</b> the result they get, not your product name</li><li><b>Subheadline:</b> who it’s for and how it helps</li><li><b>Hero image:</b> the product or the result</li><li><b>Button:</b> one clear action, like “Shop the drop” or “Save my spot”</li><li><b>Benefits:</b> 3–5 short bullets</li><li><b>Proof:</b> real reviews, photos or results (never made up)</li><li><b>Offer:</b> price, what’s included, any deadline that’s true</li><li><b>FAQ:</b> 3–5 questions that stop people from buying</li><li><b>The button again</b> at the bottom</li></ul>"},
+  {t:"Run the landing page plan prompt",d:"It writes all your copy in your brand voice. Edit anything that doesn’t sound like you."}
+ ]},
+ {t:"Way A · Build it inside Shopify",s:[
+  {t:"Create a landing page template",path:"Online Store → Themes → Customize → page dropdown at the top → Pages → Create template",d:"Name it something like <code>landing</code>, base it on the Default page, and tap Create. Templates let a page have its own layout without changing your other pages."},
+  {t:"Add your sections",path:"Customize → [landing template] → Add section",d:"Build top to bottom from your plan: Image banner (headline and button), Featured product or Featured collection, Multicolumn (benefits), Testimonials or Image with text (proof), Collapsible content (FAQ), and Rich text with a final button. Point every button to the same product or collection."},
+  {t:"Need a section your theme doesn’t have?",path:"Add section → Custom Liquid",d:"Use the Shopify landing section prompt below. Paste Claude’s code into a Custom Liquid section."},
+  {t:"Create the page and assign the template",path:"Online Store → Pages → Add page → Theme template",d:"Give it a short title like “Holiday Drop,” then on the right under <b>Theme template</b>, choose <code>landing</code>. Save. Your page address is <code>yourstore.com/pages/holiday-drop</code>."},
+  {t:"Set the search and share preview",path:"Bottom of the page → Search engine listing → Edit",d:"Write a page title and description. It shows when people share the link."}
+ ]},
+ {t:"Way B · Build a standalone page with Claude",s:[
+  {t:"Run the standalone landing page prompt",d:"Claude builds the whole page as one .html file. Ask for changes until you love it, and check the preview on your phone."},
+  {t:"Download the .html file",d:"Name it simply, like <code>holiday-drop.html</code>, all lowercase with no spaces."},
+  {t:"Upload it to GitHub Pages",path:"Your repository → Add file → Upload files",d:"Same steps as module 14. Your page is live at <code>yourbrand.com/holiday-drop.html</code> in a minute or two."},
+  {t:"Connect the button",d:"Paste your Stripe payment link, Shopify product link, booking link or email form link into the button. For a waitlist, ask Claude to add a free form (like FormSubmit) that emails sign-ups to you."}
+ ]},
+ {t:"Before you share it",s:[
+  {t:"Test it on your phone",d:"Read every word, tap every button, and check that images load fast. Most visitors will be on a phone."},
+  {t:"Click the button all the way through",d:"Make sure it goes to the right product, payment or form, and that a test purchase or signup works."},
+  {t:"Double-check your claims",d:"Real reviews only, prices you really charge, and deadlines that are true. Fake urgency and made-up reviews break FTC rules (module 09)."},
+  {t:"Share it everywhere",d:"Put the link in your bio, stories, posts, emails and ads. When the offer ends, update the page or point the link somewhere new."}
+ ]}],
+ copy:[
+  {h:"Prompt · Landing page plan and copy",sub:"Start here for either way.",b:"Write the copy for a one-page landing page in my brand voice.\n\nBusiness: [NAME]\nThe one goal of this page: [e.g. buy this product / join my waitlist / book a call]\nWhat I'm offering: [PRODUCT OR SERVICE] · Price: [PRICE]\nWho it's for: [CUSTOMER]\nWhere visitors come from: [e.g. Instagram bio, TikTok, ads]\nWhy they should want it: [DETAILS]\nReal reviews or results I can use: [PASTE THEM, or 'none yet']\nDeadline or limited offer (only if true): [DETAILS or 'none']\nBrand vibe: [3 WORDS]\n\nGive me: 3 headline options, a subheadline, button text, 4 benefit bullets, a short 'what's included' list, a proof section using only the reviews I gave you (leave a placeholder if none), 4 FAQs with answers, and a final call to action. Keep it short enough to read on a phone."},
+  {h:"Prompt · Standalone landing page (Way B)",sub:"Builds the whole page as one file.",b:"Build my landing page as a single .html file I can upload to GitHub Pages.\n\nUse this copy: [PASTE YOUR LANDING PAGE COPY]\nBrand colors: [HEX CODES] · Fonts: [FONT NAMES or 'suggest a pair from Google Fonts']\nButton link: [PAYMENT LINK, PRODUCT LINK OR FORM LINK]\nImages: [describe them, or 'use tasteful placeholders I can replace']\n\nRules: mobile-first, fast loading, one clear button style repeated at the top, middle and bottom, a simple footer with my business name, contact email [SUPPORT EMAIL] and policy links. Everything in one file. No external scripts. Tell me exactly where to replace image and link placeholders."},
+  {h:"Prompt · Shopify landing section (Way A)",sub:"For a section your theme doesn’t have.",b:"Write a self-contained section for a landing page in my Shopify store, to paste into a 'Custom Liquid' section in the theme editor.\n\nSection: [e.g. 'a hero with a countdown to my launch date', 'a 3-step how-it-works strip', 'a big benefits grid with icons']\nCopy: [PASTE THE TEXT FOR THIS SECTION]\nButton link: [PRODUCT OR COLLECTION LINK]\nBrand colors: [HEX CODES] · Font: inherit from the theme\n\nRules: one block of HTML and CSS with styles scoped to a unique class so nothing else on my store changes. No external scripts. It must look great on mobile."},
+  {h:"Prompt · Waitlist or email signup page",sub:"For launches, drops and freebies.",b:"Build a one-page waitlist signup page as a single .html file for GitHub Pages.\n\nBusiness: [NAME]\nWhat they're signing up for: [e.g. early access to my launch / a free guide]\nWhat they get for joining: [e.g. 10% off, first pick, the free guide]\nLaunch date (if any): [DATE]\nBrand colors and vibe: [HEX CODES] · [3 WORDS]\n\nInclude a headline, 3 reasons to join, and a form with name and email that sends each sign-up to my email [SUPPORT EMAIL] using FormSubmit (https://formsubmit.co), with a hidden honeypot field for spam and a thank-you message after they submit. Add a line explaining how I'll use their email and that they can unsubscribe anytime. Mobile-first, one file, no other external scripts."}
+ ]},
+{id:"next",n:"16",name:"You launched!",time:"5 min",finish:"",intro:"",celebrate:true,groups:[]}
+];
+
+/* Which workbook answers fill which prompt blanks */
+const FILL={"[NAME]":"store","[PRODUCTS]":"products","[HOW I GET PRODUCTS]":"source","[CUSTOMER]":"customer","[PRICE RANGE]":"price","[3 WORDS]":"vibe","[HEX CODES]":"colors","[INSPIRATION]":"inspo","[STORE BRIEF]":"brief","[SUPPORT EMAIL]":"email","[LEGAL NAME]":"legal","[STATE]":"state","[STORE URL]":"url","[INSTAGRAM]":"ig","[TIKTOK]":"tt"};
+
+/* ===== State ===== */
+const KEY="sbn-launch-kit-v1";
+let S={steps:{},f:{}};
+try{const d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&d.steps)S=d}catch(e){}
+let saveT;function flush(){clearTimeout(saveT);try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function save(){clearTimeout(saveT);saveT=setTimeout(flush,250)}
+addEventListener("pagehide",flush);document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")flush()});
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const f=k=>(S.f[k]||"").trim();
+function sid(mi,gi,si){return M[mi].id+"-"+gi+"-"+si}
+function counts(mi){let t=0,d=0;M[mi].groups.forEach((g,gi)=>g.s.forEach((s,si)=>{t++;if(S.steps[sid(mi,gi,si)])d++}));return[d,t]}
+function totals(){let D=0,T=0;M.forEach((m,mi)=>{const[d,t]=counts(mi);D+=d;T+=t});return[D,T]}
+
+/* ===== Rendering ===== */
+function table(tb){return `<div class="tbl"><table${tb.head.length>2?' class="wide"':""}><thead><tr>${tb.head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${tb.rows.map(r=>`<tr${r[5]?' class="pick"':''}>${r.slice(0,tb.head.length).map((c,i)=>`<td${i>0&&/^\$|^—|%/.test(c)?' class="num"':''}>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`}
+function filled(text,mark){
+  return text.replace(/\[[A-Z0-9 \-–'/]+\]/g,tok=>{const k=FILL[tok];const v=k&&f(k);
+    if(!v)return mark?esc(tok):tok;
+    return mark?`<mark>${esc(v)}</mark>`:v});
+}
+function copyBox(c,key){return `<div class="copy"><div class="ch"><b>${c.h}${c.sub?`<small>${c.sub}</small>`:""}</b><button class="cbtn" data-copy="${key}" type="button">Copy</button></div><pre id="pre-${key}" data-src="${key}">${filled(esc(c.b).replace(/&amp;/g,"&"),true)}</pre><p class="fillnote">Purple text came from your workbook answers. Fill in any [BRACKETS] that are left.</p></div>`}
+function fld(k,label,type,ph,cls){const v=esc(S.f[k]||"");
+  if(type==="area")return `<div class="${cls||"full"}"><label for="f_${k}">${label}</label><textarea id="f_${k}" data-f="${k}" placeholder="${esc(ph||"")}">${v}</textarea></div>`;
+  return `<div class="${cls||""}"><label for="f_${k}">${label}</label><input type="${type||"text"}" id="f_${k}" data-f="${k}" placeholder="${esc(ph||"")}" value="${v}"${type==="number"?' inputmode="decimal" step="0.01" min="0"':''}></div>`}
+function workbook(kind){
+  if(kind==="welcome")return `<div class="wb"><h3>Your launch plan</h3><p class="sub">Pick a date and your plan fills in.</p><div class="fields">${fld("first","Your first name","text","Nik")}${fld("launchDate","Target launch date","date")}</div><div class="plan" id="planOut"></div>
+    <div class="btn-row"><a class="btn" id="mailLink" href="#">✉ Email me my link</a><button class="btn ghost" type="button" id="copyLink">Copy my link</button></div><p class="status" id="linkStatus" aria-live="polite"></p></div>`;
+  if(kind==="brief")return `<div class="wb"><h3>Your store details</h3><p class="sub">These fill in the prompts throughout the course. Saves automatically.</p><div class="fields">
+    ${fld("store","Store name","text","e.g. Glow Bar")}${fld("products","What you sell","text","e.g. satin bonnets and loungewear")}
+    ${fld("source","How you get products","text","I make them / print-on-demand / dropshipping / digital")}${fld("customer","Who it’s for","text","e.g. women 25–40 who love self-care")}
+    ${fld("price","Price range","text","e.g. $25–$60")}${fld("vibe","Brand vibe in 3 words","text","e.g. soft, luxe, welcoming")}
+    ${fld("colors","Brand colors (hex codes)","text","#5B3FD9, #F3F0FC, or “suggest some”")}${fld("inspo","Stores you like the look of","text","links or descriptions")}
+    ${fld("brief","Paste your final store brief from Claude here","area","Paste Claude’s answer here so later prompts can use it")}</div></div>`;
+  if(kind==="business")return `<div class="wb"><h3>Your business info</h3><p class="sub">Used in your legal pages and FAQ prompts. Don’t type your EIN or bank numbers here.</p><div class="fields">
+    ${fld("legal","Legal business name","text","e.g. Glow Bar LLC")}${fld("state","State","text","e.g. Florida")}${fld("email","Support email","email","e.g. support@yourstore.com")}${fld("url","Store web address","url","https://yourstore.com")}
+    ${fld("ig","Instagram link","url","https://instagram.com/…")}${fld("tt","TikTok link","url","https://tiktok.com/@…")}</div></div>`;
+  if(kind==="calc")return `<div class="wb"><h3>Profit calculator</h3><p class="sub">See what you actually keep on each sale on the Basic plan (2.9% + 30¢ card fee).</p><div class="fields">
+    ${fld("c_cost","Product cost ($)","number","12.00")}${fld("c_ship","Shipping you pay ($)","number","5.00")}${fld("c_price","Your selling price ($)","number","34.00")}${fld("c_shipc","Shipping customer pays ($)","number","0")}${fld("c_disc","Typical discount (%)","number","10")}${fld("c_ads","Ads + apps per sale ($)","number","3.00")}</div><div class="calc-out" id="calcOut"></div></div>`;
+  return "";
+}
+function celebrate(){const name=f("first");const [D,T]=totals();
+  return `<div class="celebrate"><span class="eyebrow" style="color:#E4DDFF">Module 16</span><h2>${name?esc(name)+", you":"You"} did it! 🎉</h2><p>${D} of ${T} steps complete. You built a real store yourself, and that’s a big deal. Here’s what to do next.</p></div>
+  <div class="group"><h3>Your next 3 moves</h3>
+   <div class="step"><span style="font-size:22px">⭐</span><div class="sb"><span class="st">Leave a review</span><div class="sd">Tell other new business owners how the course went. It helps more than you know.</div><div class="btn-row"><a class="btn" href="${SITE_URL}/#reviews">Leave a review</a></div></div></div>
+   <div class="step"><span style="font-size:22px">🔍</span><div class="sb"><span class="st">Get a Site Check · ${SITE_CHECK_PRICE}</span><div class="sd">Before (or right after) you launch, I review your store and send you a short list of fixes: design, product pages, policies, checkout and mobile. Email me your store link.</div><div class="btn-row"><a class="btn ghost" href="mailto:${HELP_EMAIL}?subject=Site%20Check%20request">Request a Site Check</a></div><p class="sub" style="margin-top:6px;font-size:13.5px;color:var(--muted)">${HELP_EMAIL}</p></div></div>
+   <div class="step"><span style="font-size:22px">💜</span><div class="sb"><span class="st">Share your launch</span><div class="sd">Post your store and tag <b>@sitesbynik</b>. I love celebrating my students.</div></div></div>
+  </div>${dfy()}`;}
+function dfy(){return `<div class="dfy"><span class="eyebrow">Rather have it done for you?</span><h3>Let me build it for you</h3><p>Stuck, or short on time? I can build your store with this exact process. Websites start at $250, and your ${COURSE_PRICE} course purchase is credited toward any Sites by Nik package. Just email me your receipt.</p><a class="btn light" href="${SITE_URL}/#packages">See packages</a><p style="font-size:13.5px;margin-top:10px">${HELP_EMAIL}</p></div>`}
+function renderAll(){
+  document.getElementById("main").innerHTML=M.map((m,mi)=>{
+    let h=`<section class="panel" id="panel-${m.id}" role="tabpanel">`;
+    if(m.celebrate){h+=celebrate()}else{
+    h+=`<div class="head"><span class="eyebrow">Module ${m.n}</span><h2>${m.name}</h2><p class="lede">${m.intro}</p><div class="meta"><span>⏱ ${m.time}</span>${m.finish?`<span>✓ Done when: ${m.finish}</span>`:""}</div></div>`;
+    if(m.why)h+=`<div class="why">${m.why}</div>`;
+    m.groups.forEach((g,gi)=>{
+      h+=`<div class="group"><h3>${g.t}</h3>`;
+      if(g.table)h+=table(g.table);
+      g.s.forEach((s,si)=>{const id=sid(mi,gi,si);const on=!!S.steps[id];
+        h+=`<div class="step${on?" done":""}"><input type="checkbox" id="${id}"${on?" checked":""}><div class="sb"><label class="st" for="${id}">${s.t}</label>${s.path?`<span class="path">${s.path}</span>`:""}<div class="sd">${s.d}</div>${s.tip?`<div class="tip">${s.tip}</div>`:""}</div></div>`});
+      h+=`</div>`;
+      if(gi===0&&m.workbook&&m.workbook!=="calc")h+=workbook(m.workbook);
+    });
+    if(m.workbook==="calc")h+=workbook("calc");
+    if(m.table)h+=`<div class="group"><h3>${m.table.title}</h3>${table(m.table)}</div>`;
+    if(m.copy)h+=`<div class="group"><h3>Prompts and templates</h3>${m.copy.map((c,ci)=>copyBox(c,mi+"-"+ci)).join("")}</div>`;
+    if(["design","legal","launch"].includes(m.id))h+=dfy();
+    }
+    h+=`<div class="pager">${mi>0?`<button type="button" data-go="${mi-1}">← ${M[mi-1].name}</button>`:"<span></span>"}${mi<M.length-1?`<button class="next" type="button" data-go="${mi+1}">Next: ${M[mi+1].name} →</button>`:""}</div></section>`;
+    return h}).join("");
+  refreshPrompts();renderPlan();renderCalc();setLinks();
+}
+function refreshPrompts(){
+  document.querySelectorAll("pre[data-src]").forEach(pre=>{const[mi,ci]=pre.dataset.src.split("-").map(Number);pre.innerHTML=filled(esc(M[mi].copy[ci].b).replace(/&amp;/g,"&"),true)});
+}
+function renderPlan(){const el=document.getElementById("planOut");if(!el)return;const d=f("launchDate");
+  if(!d){el.innerHTML="";return}
+  const L=new Date(d+"T12:00:00"),now=new Date();const days=Math.round((L-now)/864e5);
+  const fmt=x=>x.toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric"});
+  if(days<2){el.innerHTML=`<div><b>Heads up</b><span>That’s very soon. Give yourself at least 3 days, plus up to 48 hours for your domain to connect.</span></div>`;return}
+  const step=Math.max(1,Math.floor(days/4)),at=n=>{const x=new Date(now);x.setDate(x.getDate()+n);return fmt(x)};
+  el.innerHTML=[[`By ${at(step)}`,"Modules 01–05: brief, plan, business setup, domain and payments"],[`By ${at(step*2)}`,"Modules 06–07: design your store and add products"],[`By ${at(step*3)}`,"Modules 08–12: pages, legal, shipping, email and apps"],[`${fmt(L)}`,"Module 13: test and launch! 🎉"]].map(([a,b])=>`<div><b>${a}</b><span>${b}</span></div>`).join("");
+}
+function renderCalc(){const el=document.getElementById("calcOut");if(!el)return;
+  const n=k=>parseFloat(S.f[k])||0;const cost=n("c_cost"),ship=n("c_ship"),price=n("c_price"),shipc=n("c_shipc"),disc=n("c_disc"),ads=n("c_ads");
+  if(!price){el.innerHTML=`<div><b>—</b><span>Enter your selling price to see your profit.</span></div>`;return}
+  const sale=price*(1-disc/100),charged=sale+shipc,fee=charged*0.029+0.30,profit=charged-fee-cost-ship-ads,margin=charged?profit/charged*100:0;
+  const target=Math.max(0,((0.30+cost+ship+ads)/0.671-shipc)/(1-disc/100));
+  const m=x=>"$"+x.toFixed(2);
+  el.innerHTML=`<div><b>${m(charged)}</b><span>Customer pays (after ${disc}% off)</span></div><div><b>${m(fee)}</b><span>Card fee</span></div><div class="${profit>0?"good":"bad"}"><b>${m(profit)}</b><span>Your profit per sale</span></div><div class="${margin>=30?"good":margin>0?"":"bad"}"><b>${margin.toFixed(0)}%</b><span>Profit margin ${margin>=30?"· healthy":margin>0?"· thin, consider raising":"· you’re losing money"}</span></div><div><b>${m(Math.ceil(target)-0.01)}</b><span>Suggested price for about a 30% margin</span></div>`;
+}
+function link(){return location.href.split("#")[0]}
+function setLinks(){const a=document.getElementById("mailLink");if(a)a.href=`mailto:?subject=${encodeURIComponent("My Shopify Launch Kit course link")}&body=${encodeURIComponent("Here's my Sites by Nik course link. My progress saves in the browser where I started:\n\n"+link())}`}
+function renderStrip(){const cur=current();
+  document.getElementById("strip").innerHTML=M.map((m,mi)=>{const[d,t]=counts(mi);return `<button class="mod${t&&d===t?" full":""}" role="tab" aria-selected="${mi===cur}" data-go="${mi}" type="button"><span class="n">${m.n}</span>${m.name}${t?`<span class="c">${d}/${t}</span>`:""}</button>`}).join("");
+  const[D,T]=totals();document.getElementById("ovbar").style.width=(T?D/T*100:0)+"%";document.getElementById("ovpct").textContent=D+" of "+T+" steps done";
+  const on=document.querySelector('.mod[aria-selected="true"]');on&&on.scrollIntoView({block:"nearest",inline:"center"});
+}
+function current(){const h=location.hash.slice(1);const i=M.findIndex(m=>m.id===h);return i<0?0:i}
+function show(){const cur=current();M.forEach((m,mi)=>{document.getElementById("panel-"+m.id).hidden=mi!==cur});
+  if(M[cur].celebrate){const p=document.getElementById("panel-next");p.innerHTML=celebrate()+p.querySelector(".pager").outerHTML}
+  renderStrip()}
+
+/* ===== Events ===== */
+document.addEventListener("click",async e=>{
+  const g=e.target.closest("[data-go]");
+  if(g){location.hash=M[+g.dataset.go].id;window.scrollTo(0,0);return}
+  const c=e.target.closest("[data-copy]");
+  if(c){const pre=document.getElementById("pre-"+c.dataset.copy);const txt=pre.textContent;
+    const done=()=>{c.textContent="Copied ✓";c.classList.add("ok");setTimeout(()=>{c.textContent="Copy";c.classList.remove("ok")},1600)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);c.textContent="Selected · copy it"};
+    try{await navigator.clipboard.writeText(txt);done()}catch(err){fallback()}return}
+  if(e.target.id==="copyLink"){const st=document.getElementById("linkStatus");try{await navigator.clipboard.writeText(link());st.textContent="Link copied. Paste it somewhere safe, like your notes app."}catch(err){st.textContent="Your link: "+link()}}
+});
+document.addEventListener("change",e=>{
+  if(e.target.matches(".step input")){S.steps[e.target.id]=e.target.checked;save();e.target.closest(".step").classList.toggle("done",e.target.checked);renderStrip()}
+});
+document.addEventListener("input",e=>{const k=e.target.dataset&&e.target.dataset.f;if(!k)return;S.f[k]=e.target.value;save();
+  if(k==="launchDate")renderPlan();if(k.startsWith("c_"))renderCalc();if(!k.startsWith("c_"))refreshPrompts()});
+window.addEventListener("hashchange",show);
+renderAll();show();
+</script>
+</body>
+</html>
