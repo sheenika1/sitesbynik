@@ -538,5 +538,89 @@ a{color:#4B32C3}a:hover{color:#2E1E86}
 </footer>
 
 </div>
+<!-- ===== Sites by Nik · 10% off pop-up ===== -->
+<style>
+#sbn-pop{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(23,22,43,.6);backdrop-filter:blur(4px)}
+#sbn-pop.open{display:flex}
+#sbn-pop .box{position:relative;width:100%;max-width:420px;background:#fff;color:#17162B;border-radius:24px;padding:34px 26px 24px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35);font-family:Inter,system-ui,sans-serif}
+#sbn-pop .x{position:absolute;top:10px;right:12px;width:40px;height:40px;border:0;background:none;font-size:26px;line-height:1;color:#5E5C73;cursor:pointer}
+#sbn-pop .eb{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#5B3FD9}
+#sbn-pop h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:32px;line-height:1.05;margin:8px 0 8px;letter-spacing:-.02em}
+#sbn-pop h3 span{color:#5B3FD9}
+#sbn-pop p{margin:0 0 16px;color:#5E5C73;font-size:15px;line-height:1.5}
+#sbn-pop input{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:13px 14px;border:1px solid #CFC7EE;border-radius:12px;margin-bottom:10px}
+#sbn-pop input:focus{outline:3px solid #9C88FF;outline-offset:1px}
+#sbn-pop .btn{width:100%;border:0;border-radius:999px;padding:15px;font:700 16px Inter,system-ui,sans-serif;background:#5B3FD9;color:#fff;cursor:pointer}
+#sbn-pop .fine{font-size:11.5px;color:#8A879C;margin:10px 0 0}
+#sbn-pop .code{display:flex;gap:8px;align-items:center;justify-content:center;margin:6px 0 12px}
+#sbn-pop .code b{font:800 26px "Bricolage Grotesque",system-ui,sans-serif;letter-spacing:.06em;border:2px dashed #5B3FD9;border-radius:12px;padding:8px 16px;color:#3B1C9E}
+#sbn-pop .copy{border:1px solid #CFC7EE;background:#F3F0FC;color:#3B1C9E;border-radius:999px;padding:10px 14px;font:700 14px Inter,system-ui,sans-serif;cursor:pointer}
+#sbn-tab{position:fixed;left:16px;bottom:16px;z-index:9998;display:none;border:0;border-radius:999px;padding:12px 16px;background:#5B3FD9;color:#fff;font:700 14px Inter,system-ui,sans-serif;box-shadow:0 10px 30px rgba(59,28,158,.35);cursor:pointer}
+#sbn-tab.show{display:block}
+</style>
+<div id="sbn-pop" role="dialog" aria-modal="true" aria-labelledby="sbn-h">
+ <div class="box">
+  <button class="x" type="button" aria-label="Close">×</button>
+  <div id="sbn-step1">
+   <div class="eb">sites<span style="color:#17162B">by</span>nik</div>
+   <h3 id="sbn-h">Get <span>10% off</span> your website</h3>
+   <p>Join my list for website tips and launch help, and get 10% off your first Sites by Nik purchase.</p>
+   <form id="sbn-form" novalidate>
+    <input name="name" type="text" placeholder="First name" autocomplete="given-name">
+    <input name="email" type="email" placeholder="Email" autocomplete="email" required>
+    <button class="btn" type="submit">Unlock my 10%</button>
+   </form>
+   <p class="fine">By signing up, you agree to receive emails from Sites by Nik. Unsubscribe anytime.</p>
+  </div>
+  <div id="sbn-step2" hidden>
+   <div class="eb">You're in 💜</div>
+   <h3>Here's your <span>10% off</span></h3>
+   <div class="code"><b id="sbn-code"></b><button class="copy" type="button">Copy</button></div>
+   <p>It's already added to the checkout buttons on this page. Just pick your package or the course.</p>
+   <button class="btn" type="button" id="sbn-go">Shop with my discount</button>
+  </div>
+ </div>
+</div>
+<button id="sbn-tab" type="button">🎁 10% off</button>
+<script>
+(function(){
+ var CODE="SITES10";                       /* must match your Stripe promotion code exactly */
+ var FORM_TO="https://formsubmit.co/ajax/hello@sitesbynik.com";
+ var DELAY=8000;                            /* show after 8 seconds */
+ var pop=document.getElementById('sbn-pop'),tab=document.getElementById('sbn-tab');
+ function get(k){try{return localStorage.getItem(k)}catch(e){return null}}
+ function set(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+ function applyCode(){
+  document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a){
+   try{var u=new URL(a.href);u.searchParams.set('prefilled_promo_code',CODE);a.href=u.toString()}catch(e){}
+  });
+ }
+ function open(){pop.classList.add('open');tab.classList.remove('show')}
+ function close(){pop.classList.remove('open');set('sbn_seen','1');tab.classList.add('show')}
+ function done(){
+  document.getElementById('sbn-step1').hidden=true;document.getElementById('sbn-step2').hidden=false;
+  document.getElementById('sbn-code').textContent=CODE;set('sbn_joined','1');applyCode();
+ }
+ pop.querySelector('.x').onclick=close;
+ pop.addEventListener('click',function(e){if(e.target===pop)close()});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&pop.classList.contains('open'))close()});
+ tab.onclick=open;
+ document.getElementById('sbn-go').onclick=function(){close();var p=document.getElementById('packages');if(p)p.scrollIntoView({behavior:'smooth'})};
+ pop.querySelector('.copy').onclick=function(){var b=this;try{navigator.clipboard.writeText(CODE).then(function(){b.textContent='Copied ✓'})}catch(e){}};
+ document.getElementById('sbn-form').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.target,em=f.email.value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){f.email.focus();f.email.style.borderColor='#B4412F';return}
+  var btn=f.querySelector('.btn');btn.disabled=true;btn.textContent='One sec…';
+  fetch(FORM_TO,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+   body:JSON.stringify({name:f.name.value.trim(),email:em,_subject:'New 10% off signup · Sites by Nik',source:'Landing page pop-up',_template:'table'})})
+   .catch(function(){}).then(done);
+ });
+ if(get('sbn_joined')){applyCode();done();tab.classList.add('show');return}
+ if(get('sbn_seen')){tab.classList.add('show');return}
+ setTimeout(open,DELAY);
+})();
+</script>
+<!-- ===== end pop-up ===== -->
+
 </body>
 </html>
